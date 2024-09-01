@@ -1,0 +1,18 @@
+---
+import { getLocaleNavItems } from "@/i18n/utils";
+---
+
+<ul class="menu menu-horizontal lg:gap-x-10 px-0">
+  {
+    getLocaleNavItems(Astro.currentLocale).map((item) => (
+      <li>
+        <a href={item.link}>{item.label}</a>
+      </li>
+    ))
+  }
+</ul>
+<style>
+  a {
+    color: var(--sec-text);
+  }
+</style>

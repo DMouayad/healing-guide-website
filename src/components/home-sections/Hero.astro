@@ -1,0 +1,47 @@
+---
+import { i18n } from "@/i18n/utils";
+import heroImage from "@images/hero-1.png";
+import { Image } from "astro:assets";
+import LottieAnimation from "astro-integration-lottie/Lottie.astro";
+const t = i18n(Astro.currentLocale);
+---
+
+<div class="flex flex-row mt-2 md:justify-between">
+    <div class="md:max-w-2xl">
+        <div
+            class="mt-[4rem] lg:leading-[5.2rem] font-semibold text-2xl lg:text-6xl"
+        >
+            {t("hero-title")}
+        </div>
+        <div class="sec-text text-xl mt-5">
+            {t("hero-subtitle")}
+        </div>
+        <div class="h-[120px] sm:h-[100px]"></div>
+        <div class="flex flex-col sm:flex-row gap-x-[4rem]">
+            <a class="btn btn-primary" href="">{t("start-with-app")}</a>
+            <a
+                href="/#services"
+                class="hidden sm:inline-flex btn text-primary btn-ghost"
+            >
+                <span class="w-3 mx-2">
+                    <LottieAnimation
+                        src="/src/assets/dd-arrow.json"
+                        autoplay="visible"
+                    />
+                </span>
+                {t("learn-more")}</a
+            >
+        </div>
+    </div>
+
+    <div class="max-w-52 md:max-w-full">
+        <Image
+            style=""
+            quality="100"
+            src={heroImage}
+            inferSize={true}
+            width="250"
+            alt="a doctor hodling a heart emoji"
+        />
+    </div>
+</div>
