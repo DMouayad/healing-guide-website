@@ -1,17 +1,19 @@
 ---
+import { URL_BASE } from "@/common/constants";
 import { ARABIC_LANG } from "@/i18n/constants";
 
 const currentLangIsArabic = Astro.currentLocale === ARABIC_LANG;
+const engURL = URL_BASE + "/en/";
 ---
 
 <div class="flex-none grow-0 ms-7 sec-text">
     {
         currentLangIsArabic ? (
-            <a class="lang-switch" href="/en/">
+            <a class="lang-switch" href={engURL}>
                 English
             </a>
         ) : (
-            <a class="lang-switch fw-bold" href="/">
+            <a class="lang-switch fw-bold" href={`${URL_BASE}/`}>
                 العربية
             </a>
         )
