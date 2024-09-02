@@ -4,15 +4,19 @@ import MobileDrawer from "@/components/nav/MobileDrawer.astro";
 import Navigation from "@/components/nav/Navigation.astro";
 import TopHeader from "@/components/TopHeader.astro";
 import { DEFAULT_LOCALE } from "@/i18n/constants";
+import { i18n } from "@/i18n/utils";
 import "@fontsource/almarai/arabic.css";
 
 interface Props {
 	title: string;
 }
 
-const { title } = Astro.props;
 const currentLanguage = Astro.currentLocale || DEFAULT_LOCALE;
 const isArabicLocale = currentLanguage === "ar";
+var { title } = Astro.props;
+title =
+	i18n(currentLanguage)("site-name") +
+	(title.trim().length > 0 ? +"|" + title : "");
 ---
 
 <!doctype html>
