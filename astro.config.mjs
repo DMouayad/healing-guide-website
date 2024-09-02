@@ -7,8 +7,8 @@ import lottie from "astro-integration-lottie";
 
 // https://astro.build/config
 export default defineConfig({
-    //TODO:: add site url
-    // site:,
+    site: 'https://DMouayad.github.io',
+    base: 'healing-guide-website',
     output: 'static',
     integrations: [tailwind(), sitemap({ i18n: { locales: LOCALES, defaultLocale: DEFAULT_LOCALE } }), lottie()],
     i18n: {
