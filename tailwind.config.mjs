@@ -26,5 +26,5 @@ export default {
 			},
 		},
 	},
-	plugins: [require("@tailwindcss/typography"), require("tailwindcss-flip"), require("daisyui")],
+	plugins: [require("@tailwindcss/typography"), require("daisyui")],
 }
