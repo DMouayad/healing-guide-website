@@ -36,7 +36,6 @@ const t = i18n(Astro.currentLocale);
 
     <div class="max-w-52 md:max-w-full">
         <Image
-            style=""
             quality="100"
             src={heroImage}
             inferSize={true}
@@ -44,4 +43,25 @@ const t = i18n(Astro.currentLocale);
             alt="a doctor hodling a heart emoji"
         />
     </div>
+    <div class="elipse top-[100px] sm:top-[200px]"></div>
+    <div class="elipse-2 blur-xl top-[340px] sm:top-[180px]"></div>
 </div>
+<style>
+    .elipse {
+        position: absolute;
+        width: 120px;
+        height: 120px;
+        right: -60px;
+        clip-path: ellipse();
+        background: #d1e9da;
+        opacity: 0.25;
+    }
+    .elipse-2 {
+        position: absolute;
+        width: 55px;
+        height: 55px;
+        left: 0px;
+        clip-path: circle();
+        background: #9dd161be;
+    }
+</style>

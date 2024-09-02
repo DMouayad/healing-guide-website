@@ -3,7 +3,7 @@ import Footer from "@/components/Footer.astro";
 import MobileDrawer from "@/components/nav/MobileDrawer.astro";
 import Navigation from "@/components/nav/Navigation.astro";
 import TopHeader from "@/components/TopHeader.astro";
-import { DEFAULT_LOCALE } from "@common/constants";
+import { DEFAULT_LOCALE } from "@/i18n/constants";
 import "@fontsource/almarai/arabic.css";
 
 interface Props {
@@ -57,8 +57,14 @@ const isArabicLocale = currentLanguage === "ar";
 		}
 	}
 	:root {
+		body {
+			overflow-x: hidden;
+		}
 		.sec-text {
 			color: var(--sec-text);
 		}
+	}
+	section {
+		padding: 80px 0;
 	}
 </style>

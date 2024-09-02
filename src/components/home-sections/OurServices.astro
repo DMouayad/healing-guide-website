@@ -1,0 +1,160 @@
+---
+import { i18n } from "@/i18n/utils";
+import SectionTitle from "../SectionTitle.astro";
+import img from "@images/nurse-with-mask.png";
+import { Image } from "astro:assets";
+import FeatureSection from "../FeatureSection.astro";
+const t = i18n(Astro.currentLocale);
+---
+
+<section>
+    <SectionTitle
+        mainTitle={t("services-sec-mainTitle")}
+        upperTitle={t("services-sec-upperTitle")}
+    />
+    <div class="flex mt-[20px] flex-col items-center relative">
+        <Image
+            class="main-img h-[400px] sm:h-[600px]"
+            src={img}
+            alt="A masked nurse"
+        />
+        <div class="inner-body w-full max-w-screen-xl"></div>
+
+        <div
+            class="absolute text-sm lg:text-lg font-semibold w-full max-w-6xl grid grid-cols-4 grid-rows-6"
+        >
+            <div class="card ms-6 mt-6">
+                {t("feature-card-1")}
+            </div>
+            <div class="card col-start-5">
+                {t("feature-card-2")}
+            </div>
+            <div class="card row-start-4">
+                {t("feature-card-3")}
+            </div>
+            <div class="card row-start-6 ms-8">
+                {t("feature-card-4")}
+            </div>
+            <div class="card me-8 col-start-5 row-start-3">
+                {t("feature-card-5")}
+            </div>
+            <div class="card col-start-5 row-start-5">
+                {t("feature-card-6")}
+            </div>
+        </div>
+        <div
+            class="elipse top-[-50px] right-[2px] md:top-[170px] md:right-[50px]"
+        >
+        </div>
+    </div>
+</section>
+<FeatureSection
+    title={t("service-card-1-title")}
+    description={t("service-card-1-desc")}
+    ctaBtnTitle={t("service-card-1-cta")}
+    isLTR={false}
+>
+    <svg
+        width="30"
+        height="52"
+        viewBox="0 0 30 52"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <path
+            d="M0 3.6056V48.7145C0 49.6283 0.363014 50.5047 1.00918 51.1509C1.65535 51.797 2.53174 52.16 3.44557 52.16H25.9457C26.8596 52.16 27.736 51.797 28.3821 51.1509C29.0283 50.5047 29.3913 49.6283 29.3913 48.7145V3.6056C29.3913 2.69178 29.0283 1.81539 28.3821 1.16922C27.736 0.523048 26.8596 0.160034 25.9457 0.160034H3.44557C2.53174 0.160034 1.65535 0.523048 1.00918 1.16922C0.363014 1.81539 0 2.69178 0 3.6056ZM27.1304 48.7167C27.1298 49.0305 27.0048 49.3313 26.7826 49.553C26.5605 49.7747 26.2596 49.8992 25.9457 49.8992H18.087V47.6383H11.3043V49.8992H3.44557C3.13176 49.8992 2.83077 49.7747 2.60866 49.553C2.38655 49.3313 2.26147 49.0305 2.26087 48.7167V45.3774H27.1304V48.7167ZM27.1304 43.1166H2.26087V6.94264H27.1304V43.1166ZM25.9457 2.4209C26.2596 2.4209 26.5605 2.54541 26.7826 2.76709C27.0048 2.98878 27.1298 3.28953 27.1304 3.60334V4.68177H2.26087V3.60334C2.26147 3.28953 2.38655 2.98878 2.60866 2.76709C2.83077 2.54541 3.13176 2.4209 3.44557 2.4209H25.9457Z"
+            fill="url(#paint0_linear_1_343)"></path>
+        <defs>
+            <linearGradient
+                id="paint0_linear_1_343"
+                x1="4.08717"
+                y1="19.2777"
+                x2="18.9645"
+                y2="19.2777"
+                gradientUnits="userSpaceOnUse"
+            >
+                <stop stop-color="#4F94E5"></stop>
+                <stop offset="1" stop-color="#20BFB4"></stop>
+            </linearGradient>
+        </defs>
+    </svg>
+</FeatureSection>
+<FeatureSection
+    title={t("service-card-2-title")}
+    description={t("service-card-2-desc")}
+    ctaBtnTitle={t("service-card-2-cta")}
+    isLTR={true}
+>
+    <svg
+        width="51"
+        height="53"
+        viewBox="0 0 51 53"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M47.4375 29.3408H3.5625V6.59082C3.5625 4.79682 5.0185 3.34082 6.8125 3.34082H44.1875C45.9815 3.34082 47.4375 4.79682 47.4375 6.59082V29.3408ZM47.4375 35.8408C47.4375 37.6348 45.9815 39.0908 44.1875 39.0908H6.8125C5.0185 39.0908 3.5625 37.6348 3.5625 35.8408V32.5908H47.4375V35.8408ZM23.0625 42.3408H29.5625V48.8408H23.0625V42.3408ZM44.1875 0.0908203H6.8125C3.22287 0.0908203 0.3125 3.0012 0.3125 6.59082V35.8408C0.3125 39.4304 3.22287 42.3408 6.8125 42.3408H19.8125V48.8408H16.5625C15.6639 48.8408 14.9375 49.5688 14.9375 50.4658C14.9375 51.3644 15.6639 52.0908 16.5625 52.0908H36.0625C36.9611 52.0908 37.6875 51.3644 37.6875 50.4658C37.6875 49.5688 36.9611 48.8408 36.0625 48.8408H32.8125V42.3408H44.1875C47.7771 42.3408 50.6875 39.4304 50.6875 35.8408V6.59082C50.6875 3.0012 47.7771 0.0908203 44.1875 0.0908203Z"
+            fill="url(#paint0_linear_1_359)"></path>
+        <defs>
+            <linearGradient
+                id="paint0_linear_1_359"
+                x1="7.31768"
+                y1="19.2085"
+                x2="32.8165"
+                y2="19.2085"
+                gradientUnits="userSpaceOnUse"
+            >
+                <stop stop-color="#4F94E5"></stop>
+                <stop offset="1" stop-color="#20BFB4"></stop>
+            </linearGradient>
+        </defs>
+    </svg>
+</FeatureSection>
+<style>
+    .elipse {
+        position: absolute;
+        width: 65px;
+        height: 65px;
+
+        clip-path: ellipse();
+        /* green */
+        background: radial-gradient(closest-side, #9cd161, #ffffff3b);
+        /* filter: blur(10px); */
+    }
+    .main-img {
+        width: auto;
+        position: relative;
+    }
+    .inner-body {
+        position: absolute;
+        background-clip: border-box;
+        height: 250px;
+        bottom: 0;
+        background: linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.66) 27.08%,
+            #ffffff 65.1%,
+            #ffffff 100%
+        );
+    }
+
+    /* Auto layout */
+    .card {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        padding: 22px;
+        min-width: max-content;
+        max-height: 72px;
+        background: #ffffff;
+        box-shadow: 0px 19px 69px rgba(224, 223, 233, 0.38);
+        border-radius: 10px;
+        @media (max-width: 500px) {
+            max-height: 52px;
+            padding: 10px 20px;
+        }
+    }
+</style>

@@ -1,0 +1,16 @@
+---
+interface Props {
+    mainTitle: string;
+    upperTitle: string;
+}
+const { mainTitle, upperTitle } = Astro.props;
+---
+
+<div class="flex flex-col items-center">
+    <div
+        class="badge bg-[#2b75ca26] capitalize md:text-md py-5 px-2 text-primary mb-4"
+    >
+        {upperTitle}
+    </div>
+    <div class="text-2xl md:text-6xl font-bold">{mainTitle}</div>
+</div>

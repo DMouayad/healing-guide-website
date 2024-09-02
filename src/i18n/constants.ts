@@ -14,7 +14,31 @@ export const TRANSLATIONS: { [key: string]: any } = {
         'hero-subtitle': 'دليلك الأول للخدمات الطبية في مدينة دمشق',
         'download-btn-text': 'تحميل التطبيق',
         'learn-more': 'اعرف أكثر',
-        'start-with-app': 'حمّل التطبيق وابحث الآن'
+        'start-with-app': 'حمّل التطبيق وابحث الآن',
+        'services-sec-upperTitle': 'خدمات التطبيق',
+        'services-sec-mainTitle': 'ماذا نقدم',
+        'feature-card-1': 'طلب الإسعاف الفوري بكبسة زر',
+        'feature-card-2': 'تعريف بأقسام المستشفيات',
+        'feature-card-3': 'البحث عن الأطباء والعيادات التخصصية',
+        'feature-card-4': 'جدول مناوبات أطباء الدراسات ومهامهم',
+        'feature-card-5': 'الوصول إلى سياسات المنشأة الطبية ',
+        'feature-card-6': 'التحكم ',
+        'service-card-1-title': 'تطبيق الأطباء والمرضى',
+        'service-card-1-desc': [{
+            'title': 'الأطباء',
+            'content': 'يوفر لك جدول بالمناوبات الشهرية والمهام الموكلو إليك ويزودك بتفاصيل المنشأة الطبية'
+        },
+        {
+            'title': 'المرضى والزوّار',
+            'content': 'إمكانية البحث عن المستشفيات والعيادات الطبية تبعاً للتخصص أو الموقع. كما يعرض لك كل ما يلزمك من معلومات : السياسات العامة وتعليمات الزيارة والمرافق العامة المتوفرة وغير ذلك من معلومات مفيدة '
+        }
+        ],
+        'service-card-1-cta': 'تحميل التطبيق',
+        'service-card-1-cta-link': '',
+        'service-card-2-title': 'لوحة تحكم المنشأة',
+        'service-card-2-desc': 'تتيح لك إضافة البيانات الخاصة بمنشأتك متضمنةً الأقسام والكوادر الطبية بالإضافة إلى إحصائيات الآراء والتقييمات',
+        'service-card-2-cta': 'احصل على لوحة التحكم الخاصة بمنشأتك',
+        'service-card-2-cta-link': '',
     },
     "en": {
         'site-name': 'Healing Guide',
@@ -22,7 +46,9 @@ export const TRANSLATIONS: { [key: string]: any } = {
         'hero-title': 'Find a suitable treatment near you',
         'hero-subtitle': 'Your best choice for medical services in Damascus city',
         'learn-more': 'Learn More',
-        'start-with-app': 'Search now by getting our mobile app'
+        'start-with-app': 'Search now by getting our mobile app',
+        'services-sec-upperTitle': 'Our Services',
+        'services-sec-mainTitle': 'What we offer',
 
     },
 } as const;

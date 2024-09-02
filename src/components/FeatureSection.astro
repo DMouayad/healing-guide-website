@@ -1,0 +1,81 @@
+---
+interface FeatureDesc {
+    title: string;
+    content: string;
+}
+interface Props {
+    title: string;
+    description: string | FeatureDesc[];
+    isLTR: boolean;
+    ctaBtnTitle?: string;
+    ctaBtnLink?: string;
+}
+const { title, description, isLTR, ctaBtnTitle, ctaBtnLink } = Astro.props;
+---
+
+<section>
+    <div class="card md:card-side w-full h-[800px] min-h-fit md:h-auto">
+        {
+            isLTR && (
+                <div class="hidden md:grid h-[530px] basis-1/2 gap-2 grid grid-rows-6 grid-cols-4">
+                    <div class="feat-img col-span-2 row-span-4" />
+                    <div class="feat-img col-span-2 row-span-2" />
+                    <div class="feat-img col-span-2 row-span-4" />
+                    <div class="feat-img col-span-2 row-span-2" />
+                </div>
+            )
+        }
+        <div class="card-body basis-1/2">
+            <div class="card-title flex flex-row mb-6">
+                <slot />
+                <div class="text-2xl ms-4 md:text-4xl">{title}</div>
+            </div>
+            {
+                typeof description === typeof "" ? (
+                    <p class="max-h-36 sm:max-h-54 min-h-min max-w-xl font-semibold">
+                        {description}
+                    </p>
+                ) : (
+                    (description as FeatureDesc[]).map((item) => (
+                        <div class="w-full max-w-lg mb-5">
+                            <div class="text-md font-semibold">
+                                {item.title}
+                            </div>
+                            <div>{item.content}</div>
+                        </div>
+                    ))
+                )
+            }
+            <div class="card-actions">
+                <button class="btn btn-primary">{ctaBtnTitle}</button>
+            </div>
+        </div>
+        {
+            !isLTR && (
+                <div class="hidden md:grid h-[530px] basis-1/2 gap-2 grid grid-rows-6 grid-cols-4">
+                    <div class="feat-img col-span-2 row-span-4" />
+                    <div class="feat-img col-span-2 row-span-2" />
+                    <div class="feat-img col-span-2 row-span-4" />
+                    <div class="feat-img col-span-2 row-span-2" />
+                </div>
+            )
+        }
+        <div
+            class="md:hidden h-[530px] basis-1/2 gap-2 grid grid-rows-6 grid-cols-4"
+        >
+            <div class="feat-img col-span-2 row-span-4"></div>
+            <div class="feat-img col-span-2 row-span-2"></div>
+            <div class="feat-img col-span-2 row-span-4"></div>
+            <div class="feat-img col-span-2 row-span-2"></div>
+        </div>
+    </div>
+</section>
+<style>
+    section {
+        padding-top: 0;
+    }
+    .feat-img {
+        /* @apply rounded-lg; */
+        @apply bg-base-200;
+    }
+</style>
