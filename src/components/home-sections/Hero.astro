@@ -19,8 +19,8 @@ const t = i18n(Astro.currentLocale);
         <div class="h-[120px] sm:h-[100px]"></div>
         <div class="flex flex-col sm:flex-row gap-x-[4rem]">
             <a class="btn btn-primary" href="">{t("start-with-app")}</a>
-            <a
-                href="/#services"
+            <button
+                id="view-more-hero-btn"
                 class="hidden sm:inline-flex btn text-primary btn-ghost"
             >
                 <span class="w-3 mx-2">
@@ -29,7 +29,7 @@ const t = i18n(Astro.currentLocale);
                         autoplay="visible"
                     />
                 </span>
-                {t("learn-more")}</a
+                {t("learn-more")}</button
             >
         </div>
     </div>
@@ -45,6 +45,17 @@ const t = i18n(Astro.currentLocale);
     <div class="elipse top-[100px] sm:top-[200px]"></div>
     <div class="elipse-2 blur-xl top-[340px] sm:top-[180px]"></div>
 </div>
+<script is:inline>
+    const btn = document.getElementById("view-more-hero-btn");
+
+    if (btn) {
+        btn.addEventListener("click", function () {
+            document
+                .getElementById("services")
+                .scrollIntoView({ behavior: "smooth" });
+        });
+    }
+</script>
 <style>
     .elipse {
         position: absolute;
