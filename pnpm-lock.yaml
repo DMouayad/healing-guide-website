@@ -17,6 +17,9 @@ importers:
       '@fontsource/almarai':
         specifier: ^5.0.14
         version: 5.0.14
+      '@fontsource/poppins':
+        specifier: ^5.0.15
+        version: 5.0.15
       astro:
         specifier: ^4.15.2
         version: 4.15.2(@types/node@22.5.2)(rollup@4.21.2)(typescript@5.5.4)
@@ -325,6 +328,9 @@ packages:
 
   '@fontsource/almarai@5.0.14':
     resolution: {integrity: sha512-rHAtgPyNqjILp28UeXKKwOrWFIphBP93e7LeFgbKl+b7v6/20pfsCIiG87jEj7+CrmZsD7ANQ+brHwkENiwPIw==}
+
+  '@fontsource/poppins@5.0.15':
+    resolution: {integrity: sha512-hN8jhlb01v0f8F3X5h8XUiqz/dMYg/RrhyHmU1o4gZIgk+Yj2SeqmRLBj88Lh+pEjdVTmbDXSHGCVlbyPaSm8A==}
 
   '@iconify/tools@4.0.6':
     resolution: {integrity: sha512-riEQggXVuZNXjRdo+aKT0rkzn2XHslIqat8mdW/oVu5mLmP/95Hi+iaq4keT7WwMD97jsYPXMQ6QMCw0EWpRNw==}
@@ -2466,6 +2472,8 @@ snapshots:
     optional: true
 
   '@fontsource/almarai@5.0.14': {}
+
+  '@fontsource/poppins@5.0.15': {}
 
   '@iconify/tools@4.0.6':
     dependencies:

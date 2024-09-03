@@ -7,6 +7,7 @@ import TopHeader from "@/components/TopHeader.astro";
 import { DEFAULT_LOCALE } from "@/i18n/constants";
 import { i18n } from "@/i18n/utils";
 import "@fontsource/almarai/arabic.css";
+import "@fontsource/poppins/latin.css";
 
 interface Props {
 	title: string;
@@ -23,7 +24,7 @@ title =
 <!doctype html>
 <html
 	lang={currentLanguage}
-	class:list={isArabicLocale ? "ar-typography" : "en-typographt"}
+	class:list={isArabicLocale ? "ar-typography" : "en-typography"}
 	dir={isArabicLocale ? "rtl" : "ltr"}
 >
 	<head>
@@ -62,7 +63,7 @@ title =
 
 	html {
 		&.en-typography {
-			font-family: "Inter", sans-serif;
+			font-family: Poppins, sans-serif;
 		}
 	}
 	:root {
