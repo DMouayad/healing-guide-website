@@ -1,4 +1,5 @@
 ---
+import { URL_BASE } from "@/common/constants";
 import Footer from "@/components/Footer.astro";
 import MobileDrawer from "@/components/nav/MobileDrawer.astro";
 import Navigation from "@/components/nav/Navigation.astro";
@@ -29,7 +30,11 @@ title =
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link
+			rel="icon"
+			type="image/svg+xml"
+			href={URL_BASE + "/favicon.svg"}
+		/>
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
