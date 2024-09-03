@@ -6,13 +6,24 @@ import { getLocaleNavItems } from "@/i18n/utils";
   {
     getLocaleNavItems(Astro.currentLocale).map((item) => (
       <li>
-        <a href={item.link}>{item.label}</a>
+        <button class="btn btn-sm btn-ghost" data-link={item.link}>
+          {item.label}
+        </button>
       </li>
     ))
   }
 </ul>
+<script>
+  document.querySelectorAll("[data-link]").forEach((btn) => {
+    btn.addEventListener("click", function () {
+      document
+        .getElementById(btn.getAttribute("data-link") ?? "")
+        ?.scrollIntoView({ behavior: "smooth" });
+    });
+  });
+</script>
 <style>
-  a {
+  .btn {
     color: var(--sec-text);
   }
 </style>
