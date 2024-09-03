@@ -28,7 +28,7 @@ const { title, description, isLTR, ctaBtnTitle, ctaBtnLink } = Astro.props;
         <div class="card-body basis-1/2">
             <div class="card-title flex flex-row mb-6">
                 <slot />
-                <div class="text-2xl ms-4 md:text-4xl">{title}</div>
+                <div class="text-2xl ms-4 capitalize md:text-4xl">{title}</div>
             </div>
             {
                 description && typeof description === typeof "" ? (
@@ -39,7 +39,7 @@ const { title, description, isLTR, ctaBtnTitle, ctaBtnLink } = Astro.props;
                     description &&
                     (description as FeatureDesc[]).map((item) => (
                         <div class="w-full max-w-lg mb-5">
-                            <div class="text-md font-semibold">
+                            <div class="text-md font-semibold capitalize">
                                 {item.title}
                             </div>
                             <div>{item.content}</div>
