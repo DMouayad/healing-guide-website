@@ -1,0 +1,136 @@
+---
+import { i18n } from "@/i18n/utils";
+import SectionTitle from "../SectionTitle.astro";
+import DivImage from "../DivImage.astro";
+const t = i18n(Astro.currentLocale);
+import almouawasaHospital from "@images/almowasa.png";
+import assadUniHospital from "@images/assad-uni-hospital.png";
+import alfaranciHospital from "@images/alfaranci-hospital.png";
+
+const slides = [
+    [
+        { name: "مستشفى المواساة الجامعي", image: almouawasaHospital },
+        { name: "المشفى الفرنسي", image: alfaranciHospital },
+        {
+            name: "مستشفى الأسد الجامعي - Assad University Hospital",
+            image: assadUniHospital,
+        },
+    ],
+    [
+        { name: "مستشفى المواساة الجامعي", image: almouawasaHospital },
+        // { name: "المشفى الفرنسي", image: alfaranciHospital },
+        {
+            name: "مستشفى الأسد الجامعي - Assad University Hospital",
+            image: assadUniHospital,
+        },
+    ],
+].map((value, key) => {
+    return { index: key + 1, items: value };
+});
+function slideHasNext(index: number) {
+    return index + 1 <= slides.length;
+}
+function slideHasPrev(index: number) {
+    return index - 1 > 0;
+}
+---
+
+<SectionTitle
+    mainTitle={t("partners-sec-mainTitle")}
+    upperTitle={t("partners-sec-upperTitle")}
+/>
+<div
+    id="partners-carousel"
+    class="carousel carousel-end w-full h-40 pt-8 sm:pt-11"
+    data-current-slide="slide1"
+>
+    {
+        slides.map((slide) => (
+            <div
+                id={`slide${slide.index}`}
+                class="carousel-item relative w-full  justify-center"
+            >
+                <div class="carousel-item-content max-w-sm md:max-w-xl gap-16 flex justify-between pt-8 sm:pt-0">
+                    {slide.items.map((item) => (
+                        <DivImage
+                            classList="part-img w-36"
+                            options={{ src: item.image }}
+                        />
+                    ))}
+                </div>
+                <div
+                    style="direction: ltr !important;"
+                    class="absolute left-1 right-1 top-0 sm:left-5 sm:right-5 sm:top-1/2 flex -translate-y-1/2 transform justify-between"
+                >
+                    <button
+                        slide-link={`slide${slide.index - 1}`}
+                        class={`btn btn-sm  btn-circle ${
+                            slideHasPrev(slide.index)
+                                ? "btn-primary btn-circle-shadow"
+                                : " btn-disabled"
+                        }`}
+                    >
+                        ❮
+                    </button>
+                    {slideHasNext(slide.index) ? (
+                        <button
+                            slide-link={`slide${slide.index + 1}`}
+                            class="btn btn-sm  btn-circle  btn-primary btn-circle-shadow"
+                        >
+                            ❯
+                        </button>
+                    ) : (
+                        <button class="btn btn-sm  btn-circle  btn-disabled">
+                            ❯
+                        </button>
+                    )}
+                </div>
+            </div>
+        ))
+    }
+</div>
+<script>
+    function setCurrentSlide(id: string) {
+        document
+            .getElementById("partners-carousel")
+            ?.setAttribute("data-current-slide", id);
+    }
+    function getCurrentSlideId() {
+        return document.getElementById(
+            document
+                .getElementById("partners-carousel")
+                ?.getAttribute("data-current-slide") ?? "",
+        );
+    }
+    const initialSlide = getCurrentSlideId();
+    initialSlide?.classList.add("isShown");
+    document.querySelectorAll("[slide-link]").forEach((el) => {
+        el.addEventListener("click", () => {
+            const newActiveSlideId = el.getAttribute("slide-link");
+            if (newActiveSlideId) {
+                getCurrentSlideId()?.classList.remove("isShown");
+                setCurrentSlide(newActiveSlideId);
+                document
+                    .getElementById(newActiveSlideId ?? "")
+                    ?.classList.add("isShown");
+            }
+        });
+    });
+</script>
+<style>
+    .btn-circle-shadow {
+        box-shadow: 0px 2.25px 9.01px 0px #4f94e580;
+    }
+    .part-img {
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    .carousel-item {
+        display: none;
+
+        &.isShown {
+            display: inline-flex;
+        }
+    }
+</style>

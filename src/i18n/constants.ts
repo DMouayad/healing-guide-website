@@ -44,7 +44,10 @@ export const TRANSLATIONS: { [key: string]: any } = {
         'our-socials': 'حساباتنا',
         'about-us': 'من نحن',
         'useful-links': 'روابط مفيدة',
-        'direct-download': 'تحميل مباشر'
+        'direct-download': 'تحميل مباشر',
+
+        'partners-sec-mainTitle': 'شركائنا',
+        'partners-sec-upperTitle': 'مراكز طبية تثق بنا'
     },
     "en": {
         'site-name': 'Healing Guide',
@@ -82,8 +85,9 @@ export const TRANSLATIONS: { [key: string]: any } = {
         'our-socials': 'Our socials',
         'about-us': 'About us',
         'useful-links': 'Useful Links',
-        'direct-download': 'Direct download'
-
+        'direct-download': 'Direct download',
+        'partners-sec-mainTitle': 'Our partners',
+        'partners-sec-upperTitle': 'Medical facilites that trsut us'
     },
 } as const;
 export const EN_USEFUL_LINKS = [
