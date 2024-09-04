@@ -7,7 +7,7 @@ const t = i18n(Astro.currentLocale);
 ---
 
 <div class="flex flex-row mt-2 md:justify-between">
-    <div class="md:max-w-2xl">
+    <div class="md:max-w-2xl relative">
         <div
             class="mt-[4rem] lg:leading-[5.2rem] font-semibold text-2xl lg:text-6xl"
         >
@@ -32,6 +32,10 @@ const t = i18n(Astro.currentLocale);
                 {t("learn-more")}</button
             >
         </div>
+        <div
+            class="elipse-3 bottom-[-90px] left-[-90px] sm:right-1/3 md:bottom-[20px]"
+        >
+        </div>
     </div>
 
     <div class="max-w-52 md:max-w-full">
@@ -43,7 +47,8 @@ const t = i18n(Astro.currentLocale);
         />
     </div>
     <div class="elipse top-[100px] sm:top-[200px]"></div>
-    <div class="elipse-2 top-[340px] sm:top-[180px]"></div>
+    <div class="elipse-2 top-[80px] left-[-30px] sm:left-[0] sm:top-[180px]">
+    </div>
 </div>
 <script is:inline>
     const btn = document.getElementById("view-more-hero-btn");
@@ -68,8 +73,15 @@ const t = i18n(Astro.currentLocale);
         position: absolute;
         width: 65px;
         height: 65px;
-        left: 0px;
         clip-path: circle();
         background: radial-gradient(closest-side, #9cd161, #ffffff3b);
+    }
+    .elipse-3 {
+        position: absolute;
+        width: 95px;
+        height: 95px;
+        /* right: 100px; */
+        clip-path: circle();
+        background: radial-gradient(closest-side, #5566ff40, #ffffff3b);
     }
 </style>
