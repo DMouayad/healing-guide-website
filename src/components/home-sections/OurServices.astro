@@ -2,7 +2,6 @@
 import { i18n } from "@/i18n/utils";
 import SectionTitle from "../SectionTitle.astro";
 import img from "@images/nurse-with-mask.png";
-import { Image } from "astro:assets";
 import FeatureSection from "../FeatureSection.astro";
 import DivImage from "../DivImage.astro";
 const t = i18n(Astro.currentLocale);
@@ -14,11 +13,6 @@ const t = i18n(Astro.currentLocale);
         upperTitle={t("services-sec-upperTitle")}
     />
     <div class="flex mt-[20px] flex-col items-center relative">
-        <!-- <Image
-            class="main-img h-[400px] sm:h-[600px]"
-            src={img}
-            alt="A masked nurse"
-        /> -->
         <DivImage
             classList="main-img h-[400px] sm:h-[600px]"
             options={{
