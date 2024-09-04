@@ -1,5 +1,5 @@
 import { getAbsoluteLocaleUrl, getRelativeLocaleUrl } from "astro:i18n";
-import { AR_NAV_ITEMS, DEFAULT_LOCALE, EN_NAV_ITEMS, TRANSLATIONS } from "./constants";
+import { AR_NAV_ITEMS, AR_USEFUL_LINKS, DEFAULT_LOCALE, EN_NAV_ITEMS, EN_USEFUL_LINKS, TRANSLATIONS } from "./constants";
 
 export function i18n(lang?: keyof typeof TRANSLATIONS) {
     return function t(key: keyof typeof TRANSLATIONS[typeof DEFAULT_LOCALE]) {
@@ -19,4 +19,7 @@ export function relLangURL(url: string, currentLocale?: string) {
 }
 export function getLocaleNavItems(currentLocale?: string) {
     return (currentLocale || DEFAULT_LOCALE) === 'ar' ? AR_NAV_ITEMS : EN_NAV_ITEMS;
+}
+export function getLocaleUsefulLinks(currentLocale?: string) {
+    return (currentLocale || DEFAULT_LOCALE) === 'ar' ? AR_USEFUL_LINKS : EN_USEFUL_LINKS;
 }
