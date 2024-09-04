@@ -6,7 +6,10 @@ import { getLocaleNavItems } from "@/i18n/utils";
   {
     getLocaleNavItems(Astro.currentLocale).map((item) => (
       <li>
-        <button class="btn btn-sm btn-ghost" data-link={item.link}>
+        <button
+          class="btn font-normal text-lg btn-sm btn-ghost"
+          data-link={item.link}
+        >
           {item.label}
         </button>
       </li>
