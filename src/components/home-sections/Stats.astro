@@ -28,7 +28,7 @@ const t = i18n(Astro.currentLocale);
         mainTitle={t("stats-section-mainTitle")}
         upperTitle={t("stats-section-upperTitle")}
     />
-    <div class="stats w-full mt-[80px]">
+    <div class="stats w-full mt-[80px] grid-rows-2 md:grid-rows-1 gap-2">
         {
             stats.map((item) => (
                 <div class="stat place-items-center">
