@@ -53,6 +53,17 @@ export const TRANSLATIONS: { [key: string]: any } = {
         "med-facility": 'منشأة طبية',
         'stats-section-upperTitle': 'نعتز بثقتكم',
         'stats-section-mainTitle': 'إحصائيات',
+        'reviews-section-mainTitle': 'لماذا نحن',
+        'reviews-section-upperTitle': 'آراء ومراجعات',
+        'review-1-name': 'أحمد أحمد',
+        'review-1-role': 'مريض',
+        'review-1-text': 'أستخدم تطبيق الدليل الشافي بشكل يومي للبحث عن أطباء متخصصين في مجال الأمراض الجلدية. المرشحات المتعددة تساعدني في العثور على طبيب قريب من منزلي ويتوافق مع تأميني الصحي. أقسام الموارد الخاصة بكل عيادة توفر لي معلومات مفصلة عن الخدمات المقدمة وأسعارها. هذا التطبيق وفر علي الكثير من الوقت والجهد، وأنا أوصي به بشدة لأي شخص يبحث عن رعاية صحية جيدة.',
+        'review-2-name': 'مؤيد الحموي',
+        'review-2-text': 'كضيف في المدينة، كان هذا التطبيق منقذي. لقد ساعدني في العثور على أقرب مستشفى في حالة الطوارئ، كما وفر لي معلومات عن الخدمات المتاحة للسياح. فالتطبيق يعمل بسلاسة وسرعة، حتى مع وجود اتصال إنترنت ضعيف. كما أن توفير معلومات عن المواصلات المتاحة إلى المستشفى ميزة رائعة، خاصة بالنسبة للأشخاص الذين لا يعرفون المنطقة جيداً.',
+        'review-2-role': 'مريض من دولة أجنبية',
+        'review-3-name': 'مرام مرام',
+        'review-3-role': 'مدير مستشفى',
+        'review-3-text': 'التطبيق ساهم في تحسين سمعة مستشفانا وزيادة ثقة المرضى بنا. قسم الموارد يسمح لنا بتقديم معلومات دقيقة وشاملة عن خدماتنا.',
     },
     "en": {
         'site-name': 'Healing Guide',
@@ -99,6 +110,16 @@ export const TRANSLATIONS: { [key: string]: any } = {
         "med-facility": 'Medical Facility',
         'stats-section-upperTitle': 'We value your trust',
         'stats-section-mainTitle': 'Let the numbers talk ',
+        'reviews-section-mainTitle': 'what our users say',
+        'reviews-section-upperTitle': 'Testimonials',
+        'review-1-name': 'Ahmad D',
+        'review-1-text': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat ',
+        'review-2-name': 'Mouayad DD',
+        'review-2-text': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat ',
+        'review-3-name': 'Maram DDD',
+        'review-3-text': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat ',
+
+
     },
 } as const;
 export const EN_USEFUL_LINKS = [

@@ -1,0 +1,60 @@
+---
+import { i18n } from "@/i18n/utils";
+import SectionTitle from "../SectionTitle.astro";
+import CustomCarousel from "../CustomCarousel.astro";
+import ReviewCard from "../ReviewCard.astro";
+const t = i18n(Astro.currentLocale);
+---
+
+<section>
+    <div class="wrapper px-4 py-10 md:py-16 md:px-36 gap-11">
+        <SectionTitle
+            mainTitle={t("reviews-section-mainTitle")}
+            upperTitle={t("reviews-section-upperTitle")}
+        />
+        <CustomCarousel slidesCount={3} carouselId="reviews_carousel">
+            <div id="reviews_carousel_1" class="carousel__item">
+                <ReviewCard
+                    name={t("review-1-name")}
+                    role={t("review-1-role")}
+                    reviewText={t("review-1-text")}
+                />
+            </div>
+            <div id="reviews_carousel_2" class="carousel__item">
+                <ReviewCard
+                    name={t("review-2-name")}
+                    role={t("review-2-role")}
+                    reviewText={t("review-2-text")}
+                />
+            </div>
+            <div id="reviews_carousel_3" class="carousel__item">
+                <ReviewCard
+                    name={t("review-3-name")}
+                    role={t("review-3-role")}
+                    reviewText={t("review-3-text")}
+                />
+            </div>
+        </CustomCarousel>
+    </div>
+    <style>
+        .wrapper {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: fit-content;
+            background: #ffffff;
+            box-shadow: 0px 19px 69px rgba(224, 223, 233, 0.38);
+            border-radius: 15px;
+
+            /* Inside auto layout */
+            flex: none;
+            order: 7;
+            flex-grow: 0;
+            /* carousel control buttons */
+            .controls {
+                @apply translate-y-10;
+            }
+        }
+    </style>
+</section>
