@@ -47,8 +47,7 @@ const t = i18n(Astro.currentLocale);
         />
     </div>
     <div class="elipse top-[100px] sm:top-[200px]"></div>
-    <div class="elipse-2 top-[80px] left-[-30px] sm:left-[0] sm:top-[180px]">
-    </div>
+    <div class="elipse-2 top-[80px] sm:left-[0] sm:top-[180px]"></div>
 </div>
 <script is:inline>
     const btn = document.getElementById("view-more-hero-btn");
@@ -73,6 +72,7 @@ const t = i18n(Astro.currentLocale);
         position: absolute;
         width: 65px;
         height: 65px;
+        left: 0;
         clip-path: circle();
         background: radial-gradient(closest-side, #9cd161, #ffffff3b);
     }
