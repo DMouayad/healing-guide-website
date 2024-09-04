@@ -1,19 +1,45 @@
-<div class="stats">
-    <div class="stat place-items-center">
-        <div class="stat-title">Downloads</div>
-        <div class="stat-value">31K</div>
-        <div class="stat-desc">From January 1st to February 1st</div>
-    </div>
+---
+import { i18n } from "@/i18n/utils";
+import SectionTitle from "../SectionTitle.astro";
 
-    <div class="stat place-items-center">
-        <div class="stat-title">Users</div>
-        <div class="stat-value text-secondary">4,200</div>
-        <div class="stat-desc text-secondary">↗︎ 40 (2%)</div>
-    </div>
+const stats = [
+    {
+        labelKey: "positive-review",
+        value: "311+",
+    },
+    {
+        labelKey: "monthly-visitor",
+        value: "1000+",
+    },
+    {
+        labelKey: "doctor",
+        value: "120+",
+    },
+    {
+        labelKey: "med-facility",
+        value: "30+",
+    },
+];
+const t = i18n(Astro.currentLocale);
+---
 
-    <div class="stat place-items-center">
-        <div class="stat-title">New Registers</div>
-        <div class="stat-value">1,200</div>
-        <div class="stat-desc">↘︎ 90 (14%)</div>
+<section>
+    <SectionTitle
+        mainTitle={t("stats-section-mainTitle")}
+        upperTitle={t("stats-section-upperTitle")}
+    />
+    <div class="stats w-full mt-10">
+        {
+            stats.map((item) => (
+                <div class="stat place-items-center">
+                    <div class="stat-value text-gradient mb-6">
+                        {item.value}
+                    </div>
+                    <div class="stat-title text-2xl font-semibold text-base-content/90">
+                        {t(item.labelKey)}
+                    </div>
+                </div>
+            ))
+        }
     </div>
-</div>
+</section>

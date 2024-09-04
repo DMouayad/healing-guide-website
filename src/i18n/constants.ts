@@ -45,9 +45,14 @@ export const TRANSLATIONS: { [key: string]: any } = {
         'about-us': 'من نحن',
         'useful-links': 'روابط مفيدة',
         'direct-download': 'تحميل مباشر',
-
         'partners-sec-mainTitle': 'شركائنا',
-        'partners-sec-upperTitle': 'مراكز طبية تثق بنا'
+        'partners-sec-upperTitle': 'مراكز طبية تثق بنا',
+        "positive-review": 'تقييم إيجابي',
+        "monthly-visitor": 'زائر شهرياً',
+        "doctor": 'طبيب',
+        "med-facility": 'منشأة طبية',
+        'stats-section-upperTitle': 'نعتز بثقتكم',
+        'stats-section-mainTitle': 'إحصائيات',
     },
     "en": {
         'site-name': 'Healing Guide',
@@ -87,7 +92,13 @@ export const TRANSLATIONS: { [key: string]: any } = {
         'useful-links': 'Useful Links',
         'direct-download': 'Direct download',
         'partners-sec-mainTitle': 'Our partners',
-        'partners-sec-upperTitle': 'Medical facilites that trsut us'
+        'partners-sec-upperTitle': 'Medical facilites that trsut us',
+        "positive-review": 'Positive Review',
+        "monthly-visitor": 'Monthly Visitor',
+        "doctor": 'Doctor',
+        "med-facility": 'Medical Facility',
+        'stats-section-upperTitle': 'We value your trust',
+        'stats-section-mainTitle': 'Let the numbers talk ',
     },
 } as const;
 export const EN_USEFUL_LINKS = [
