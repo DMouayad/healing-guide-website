@@ -8,7 +8,7 @@ import { getLocaleNavItems } from "@/i18n/utils";
       <li>
         <button
           class="btn font-normal text-lg btn-sm btn-ghost"
-          data-link={item.link}
+          section-link={item.link}
         >
           {item.label}
         </button>
@@ -16,15 +16,7 @@ import { getLocaleNavItems } from "@/i18n/utils";
     ))
   }
 </ul>
-<script>
-  document.querySelectorAll("[data-link]").forEach((btn) => {
-    btn.addEventListener("click", function () {
-      document
-        .getElementById(btn.getAttribute("data-link") ?? "")
-        ?.scrollIntoView({ behavior: "smooth" });
-    });
-  });
-</script>
+
 <style>
   .btn {
     color: var(--sec-text);

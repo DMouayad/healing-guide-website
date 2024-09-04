@@ -55,6 +55,14 @@ title =
 	</body>
 </html>
 <script>
+	// navigate to section when a button with set attribute is clicked
+	document.querySelectorAll("[section-link]").forEach((btn) => {
+		btn.addEventListener("click", function () {
+			document
+				.getElementById(btn.getAttribute("section-link") ?? "")
+				?.scrollIntoView({ behavior: "smooth" });
+		});
+	});
 	// lazy loading background images
 	const initialiseStyleBackgroundIntersectionObserver = () => {
 		const lazyBackgrounds = Array.from(
