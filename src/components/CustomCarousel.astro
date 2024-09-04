@@ -1,0 +1,39 @@
+---
+interface Props {
+    carouselId: string;
+    slidesCount: number;
+    classList?: string;
+}
+const { carouselId, slidesCount, classList } = Astro.props;
+const slidesIds = Array.from(Array(slidesCount).keys()).map((n) => n + 1);
+---
+
+<div class="wrapper" class:list={classList}>
+    <div id={carouselId} class="carousel-container">
+        <div class="carousel">
+            <slot />
+        </div>
+        <div id="controls" class="controls">
+            {
+                slidesIds.map((id) =>
+                    id >= 1 ? (
+                        <a
+                            href={"#" + carouselId + "_" + id}
+                            class="controls__dot"
+                            autofocus
+                        >
+                            <span class="visually-hidden">{id}</span>
+                        </a>
+                    ) : (
+                        <a
+                            href={"#" + carouselId + "_" + id}
+                            class="controls__dot"
+                        >
+                            <span class="visually-hidden">{id}</span>
+                        </a>
+                    ),
+                )
+            }
+        </div>
+    </div>
+</div>
