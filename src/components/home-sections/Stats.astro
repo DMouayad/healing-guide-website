@@ -23,12 +23,12 @@ const stats = [
 const t = i18n(Astro.currentLocale);
 ---
 
-<section>
+<section style="padding-bottom: 40px;">
     <SectionTitle
         mainTitle={t("stats-section-mainTitle")}
         upperTitle={t("stats-section-upperTitle")}
     />
-    <div class="stats w-full mt-10">
+    <div class="stats w-full mt-[80px]">
         {
             stats.map((item) => (
                 <div class="stat place-items-center">
