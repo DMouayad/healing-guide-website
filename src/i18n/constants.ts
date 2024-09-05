@@ -154,7 +154,7 @@ export const AR_NAV_ITEMS = [
         'link': 'partners'
     },
     {
-        'label': 'آراء المستخدمين',
+        'label': 'لماذا نحن',
         'link': 'reviews'
     },
     {

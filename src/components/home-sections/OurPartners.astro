@@ -32,42 +32,45 @@ const slides = [
 const imagesSlider = [p1, p2, p3, p4];
 ---
 
-<SectionTitle
-    mainTitle={t("partners-sec-mainTitle")}
-    upperTitle={t("partners-sec-upperTitle")}
-/>
-<div class="w-full pt-8 sm:pt-11">
-    <div class="h-52 gap-3 md:gap-16 flex flex-wrap justify-between">
-        {
-            slides
-                .flatMap((e) => e)
-                .map((item) => (
-                    <DivImage
-                        classList="part-img w-24 sm:w-32"
-                        options={{ src: item.image }}
-                    />
-                ))
-        }
+<section id="partners">
+    <SectionTitle
+        mainTitle={t("partners-sec-mainTitle")}
+        upperTitle={t("partners-sec-upperTitle")}
+    />
+    <div class="w-full pt-8 sm:pt-11">
+        <div class="h-52 gap-3 md:gap-16 flex flex-wrap justify-between">
+            {
+                slides
+                    .flatMap((e) => e)
+                    .map((item) => (
+                        <DivImage
+                            classList="part-img w-24 sm:w-32"
+                            options={{ src: item.image }}
+                        />
+                    ))
+            }
+        </div>
     </div>
-</div>
-<div class="wrapper mt-9 sm:mt-5">
-    <CustomCarousel
-        whiteControls={true}
-        slidesCount={imagesSlider.length}
-        carouselId="partners_imgs"
-    >
-        {
-            imagesSlider.map((item, i) => (
-                <div id={`partners_imgs_${i + 1}`} class="carousel__item ">
-                    <DivImage
-                        classList="h-[330px] md:h-[600px] bg-cover bg-no-repeat bg-center"
-                        options={{ src: item, width: 1920 }}
-                    />
-                </div>
-            ))
-        }
-    </CustomCarousel>
-</div>
+    <div class="wrapper mt-9 sm:mt-5">
+        <CustomCarousel
+            whiteControls={true}
+            slidesCount={imagesSlider.length}
+            carouselId="partners_imgs"
+        >
+            {
+                imagesSlider.map((item, i) => (
+                    <div id={`partners_imgs_${i + 1}`} class="carousel__item ">
+                        <DivImage
+                            classList="h-[330px] md:h-[600px] bg-cover bg-no-repeat bg-center"
+                            options={{ src: item, width: 1920 }}
+                        />
+                    </div>
+                ))
+            }
+        </CustomCarousel>
+    </div>
+</section>
+
 <style>
     .part-img {
         background-size: contain;

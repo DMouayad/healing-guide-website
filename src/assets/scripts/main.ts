@@ -3,7 +3,7 @@ document.querySelectorAll("[section-link]").forEach((btn) => {
     btn.addEventListener("click", function () {
         document
             .getElementById(btn.getAttribute("section-link") ?? "")
-            ?.scrollIntoView({ behavior: "smooth" });
+            ?.scrollIntoView({ behavior: "smooth", inline: "nearest" });
     });
 });
 // lazy loading background images
