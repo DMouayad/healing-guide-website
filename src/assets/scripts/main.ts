@@ -68,7 +68,7 @@ function handleCarouselControlClick(event: any, preventDefault: boolean) {
     if (preventDefault) {
         event.preventDefault();
     }
-    $slide.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' })
+    $slide.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' })
 }
 const c = document.getElementsByClassName('custom-carousel')
 for (const item of c) {
