@@ -6,6 +6,9 @@ interface Props {
 }
 const { carouselId, slidesCount, classList } = Astro.props;
 const slidesIds = Array.from(Array(slidesCount).keys()).map((n) => n + 1);
+function controlIsCurrent(index: number) {
+    return index == 1 ? { checked: "yes" } : {};
+}
 ---
 
 <div class="wrapper" class:list={classList}>
@@ -15,24 +18,15 @@ const slidesIds = Array.from(Array(slidesCount).keys()).map((n) => n + 1);
         </div>
         <div id="controls" class="controls">
             {
-                slidesIds.map((id) =>
-                    id >= 1 ? (
-                        <a
-                            href={"#" + carouselId + "_" + id}
-                            class="controls__dot"
-                            autofocus
-                        >
-                            <span class="visually-hidden">{id}</span>
-                        </a>
-                    ) : (
-                        <a
-                            href={"#" + carouselId + "_" + id}
-                            class="controls__dot"
-                        >
-                            <span class="visually-hidden">{id}</span>
-                        </a>
-                    ),
-                )
+                slidesIds.map((id) => (
+                    <input
+                        {...controlIsCurrent(id)}
+                        type="radio"
+                        name={carouselId}
+                        value={"#" + carouselId + "_" + id}
+                        class="controls__dot"
+                    />
+                ))
             }
         </div>
     </div>

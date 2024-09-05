@@ -55,19 +55,25 @@ if (
         true,
     );
 }
+// custom carousel section
 
-// custom carousel
-document.querySelector("#controls")?.addEventListener("click", (event) => {
-    const $slide = document.querySelector(
-        event.target?.getAttribute("href"),
-    );
-    if (!$slide) return;
+function handleCarouselControlClick(event: any, preventDefault: boolean) {
+    const control = event.target;
+    const $slide = document.querySelector(control?.getAttribute('value'));
+    if (!$slide) {
+        console.log("not found")
+        return;
+    };
 
-    if ($slide.scrollIntoViewIfNeeded) {
+    if (preventDefault) {
         event.preventDefault();
-        $slide.scrollIntoViewIfNeeded();
-    } else if ($slide.scrollIntoView) {
-        event.preventDefault();
-        $slide.scrollIntoView();
     }
-});
+    console.log($slide)
+    $slide.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' })
+}
+document.querySelector("#controls")?.addEventListener("click", function (event) {
+    handleCarouselControlClick(event, false)
+})
+document.querySelector("#controls-arrows")?.addEventListener("click", function (event) {
+    handleCarouselControlClick(event, true)
+})

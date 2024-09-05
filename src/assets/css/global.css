@@ -62,7 +62,7 @@
 	.controls {
 		position: absolute;
 		right: 0;
-		bottom: 1em;
+		bottom: 0;
 		left: 0;
 		text-align: center;
 	}
@@ -77,14 +77,20 @@
 		display: inline-block;
 		border-radius: 50%;
 		cursor: pointer;
-		transition: all 0.2s;
+		transition: all 0.25s;
 		color: oklch(var(--p));
 		outline: 2px solid;
+		appearance: none;
 
-		&:hover,
-		&:focus {
+		&:hover {
+			background-color: oklch(var(--p));
+			opacity: .5;
+		}
+
+		&:checked {
 			background-color: oklch(var(--p));
 		}
+
 	}
 
 	p {
