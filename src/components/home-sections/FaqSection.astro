@@ -1,0 +1,47 @@
+---
+import { i18n } from "@/i18n/utils";
+import SectionTitle from "../SectionTitle.astro";
+const t = i18n(Astro.currentLocale);
+import img from "@images/faq-img.png";
+import DivImage from "../DivImage.astro";
+---
+
+<SectionTitle
+    mainTitle={t("faq-section-mainTitle")}
+    upperTitle={t("faq-section-upperTitle")}
+/>
+
+<div
+    class="flex flex-col-reverse items-center md:items-start md:flex-row my-12 justify-between w-full"
+>
+    <div class="basis-1/2 join join-vertical">
+        <div
+            class="collapse collapse-arrow rounded-none border-[#CDD6DA40] border-b-[3px]"
+        >
+            <input type="checkbox" />
+
+            <div
+                class="collapse-title py-6 text-base-content text-2xl font-semibold"
+            >
+                <span class="text-gradient text-3xl me-10">01</span>
+                Focus me to see content
+            </div>
+            <div class="collapse-content sec-text text-lg">
+                <p>
+                    Nibh quisque suscipit fermentum netus nulla cras porttitor
+                    euismod nulla. Orci, dictumst nec aliquet id ullamcorper
+                    venenatis. Fermentum sulla craspor ttitore ismod nulla.
+                </p>
+            </div>
+        </div>
+    </div>
+    <DivImage
+        classList="img size-32 md:size-64 bg-contain"
+        options={{ src: img }}
+    />
+</div>
+<style>
+    .img {
+        transform: matrix(-1, 0, 0, 1, 0, 0);
+    }
+</style>

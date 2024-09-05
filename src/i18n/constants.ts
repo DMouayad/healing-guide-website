@@ -64,6 +64,8 @@ export const TRANSLATIONS: { [key: string]: any } = {
         'review-3-name': 'مرام مرام',
         'review-3-role': 'مدير مستشفى',
         'review-3-text': 'التطبيق ساهم في تحسين سمعة مستشفانا وزيادة ثقة المرضى بنا. قسم الموارد يسمح لنا بتقديم معلومات دقيقة وشاملة عن خدماتنا.',
+        'faq-section-mainTitle': 'الأسئلة الشائعة',
+        'faq-section-upperTitle': 'تعرّف علينا أكثر',
     },
     "en": {
         'site-name': 'Healing Guide',
@@ -118,8 +120,8 @@ export const TRANSLATIONS: { [key: string]: any } = {
         'review-2-text': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat ',
         'review-3-name': 'Maram DDD',
         'review-3-text': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat ',
-
-
+        'faq-section-mainTitle': 'Frequently Asked Question',
+        'faq-section-upperTitle': 'Know us more',
     },
 } as const;
 export const EN_USEFUL_LINKS = [
