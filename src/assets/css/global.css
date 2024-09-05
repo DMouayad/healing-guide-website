@@ -70,8 +70,8 @@
 	.controls__dot {
 		@apply w-5;
 		@apply h-5;
-		@apply md:h-4;
-		@apply md:w-4;
+		@apply md:h-[20px];
+		@apply md:w-[20px];
 		@apply mx-4;
 		@apply sm:mx-3;
 		display: inline-block;
@@ -83,14 +83,33 @@
 		appearance: none;
 
 		&:hover {
-			background-color: oklch(var(--p));
+			@apply bg-primary;
 			opacity: .5;
 		}
 
 		&:checked {
-			background-color: oklch(var(--p));
+			@apply bg-primary;
 		}
 
+
+	}
+
+	.controls {
+		&.controls-light {
+			.controls__dot {
+				color: white;
+
+				&:hover {
+					background-color: white;
+					opacity: .9;
+				}
+
+				&:checked {
+					background-color: white;
+				}
+			}
+
+		}
 	}
 
 	p {

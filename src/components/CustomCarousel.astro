@@ -2,32 +2,34 @@
 interface Props {
     carouselId: string;
     slidesCount: number;
-    classList?: string;
+    whiteControls?: boolean;
 }
-const { carouselId, slidesCount, classList } = Astro.props;
+const { carouselId, slidesCount, whiteControls = false } = Astro.props;
 const slidesIds = Array.from(Array(slidesCount).keys()).map((n) => n + 1);
 function controlIsCurrent(index: number) {
     return index == 1 ? { checked: "yes" } : {};
 }
 ---
 
-<div class="wrapper" class:list={classList}>
-    <div id={carouselId} class="carousel-container">
-        <div class="carousel">
-            <slot />
-        </div>
-        <div id="controls" class="controls">
-            {
-                slidesIds.map((id) => (
-                    <input
-                        {...controlIsCurrent(id)}
-                        type="radio"
-                        name={carouselId}
-                        value={"#" + carouselId + "_" + id}
-                        class="controls__dot"
-                    />
-                ))
-            }
-        </div>
+<div id={carouselId} class="custom-carousel carousel-container">
+    <div class="carousel">
+        <slot />
+    </div>
+    <div
+        id="controls"
+        class="controls"
+        class:list={whiteControls ? "controls-light" : ""}
+    >
+        {
+            slidesIds.map((id) => (
+                <input
+                    {...controlIsCurrent(id)}
+                    type="radio"
+                    name={carouselId}
+                    value={"#" + carouselId + "_" + id}
+                    class="controls__dot"
+                />
+            ))
+        }
     </div>
 </div>

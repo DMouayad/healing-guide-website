@@ -68,12 +68,14 @@ function handleCarouselControlClick(event: any, preventDefault: boolean) {
     if (preventDefault) {
         event.preventDefault();
     }
-    console.log($slide)
     $slide.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' })
 }
-document.querySelector("#controls")?.addEventListener("click", function (event) {
-    handleCarouselControlClick(event, false)
-})
-document.querySelector("#controls-arrows")?.addEventListener("click", function (event) {
-    handleCarouselControlClick(event, true)
-})
+const c = document.getElementsByClassName('custom-carousel')
+for (const item of c) {
+    item.querySelector("#controls")?.addEventListener("click", function (event) {
+        handleCarouselControlClick(event, false)
+    })
+    item.querySelector("#controls-arrows")?.addEventListener("click", function (event) {
+        handleCarouselControlClick(event, true)
+    })
+}
