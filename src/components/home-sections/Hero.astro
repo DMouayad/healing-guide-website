@@ -3,6 +3,7 @@ import { i18n } from "@/i18n/utils";
 import heroImage from "@images/hero-1.png";
 import { Image } from "astro:assets";
 import LottieAnimation from "astro-integration-lottie/Lottie.astro";
+import { URL_BASE } from "@/common/constants";
 const t = i18n(Astro.currentLocale);
 ---
 
@@ -26,7 +27,7 @@ const t = i18n(Astro.currentLocale);
             >
                 <span class="w-3 mx-2">
                     <LottieAnimation
-                        src="/src/assets/dd-arrow.json"
+                        src={URL_BASE + "/src/assets/dd-arrow.json"}
                         autoplay="visible"
                     />
                 </span>

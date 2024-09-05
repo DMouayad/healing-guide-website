@@ -1,4 +1,5 @@
 ---
+import { URL_BASE } from "@/common/constants";
 import {
     getLocaleNavItems,
     getLocaleUsefulLinks,
@@ -49,8 +50,8 @@ const isArabicLocale = Astro.currentLocale === "ar";
                 ><img
                     class="w-[150px] md:w-[200px]"
                     src={isArabicLocale
-                        ? "/src/images/GIOGP_ar.png"
-                        : "/src/images/GIOGP_en.png"}
+                        ? URL_BASE + "/src/images/GIOGP_ar.png"
+                        : URL_BASE + "/src/images/GIOGP_en.png"}
                     alt=""
                 /></a
             >
