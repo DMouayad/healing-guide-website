@@ -21,7 +21,7 @@ const isArabicLocale = Astro.currentLocale === "ar";
         </div>
         {
             getLocaleNavItems(Astro.currentLocale).map((item) => (
-                <p data-link={item.link} class="link link-hover">
+                <p section-link={item.link} class="link link-hover">
                     {item.label}
                 </p>
             ))
@@ -43,7 +43,7 @@ const isArabicLocale = Astro.currentLocale === "ar";
         </div>
         <div class="flex flex-col md:flex-row gap-y-4 gap-x-10">
             <button
-                class="btn font-bold btn-secondary w-[150px] md:w-[200px] h-[44px] md:h-[60px]"
+                class="btn font-bold bg-gradient w-[150px] md:w-[200px] h-[44px] md:h-[60px]"
                 >{t("direct-download")}</button
             >
             <a href=""

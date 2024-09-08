@@ -19,6 +19,11 @@ html {
 		color: var(--sec-text);
 	}
 
+	.bg-gradient {
+		background: linear-gradient(90deg, #4f94e5 13.91%, #20bfb4 64.52%);
+		color: white;
+	}
+
 	.text-gradient {
 		background: linear-gradient(90deg, #4f94e5 13.91%, #20bfb4 64.52%);
 		-webkit-background-clip: text;
