@@ -57,25 +57,95 @@ if (
 }
 // custom carousel section
 
-function handleCarouselControlClick(event: any, preventDefault: boolean) {
-    const control = event.target;
-    const $slide = document.querySelector(control?.getAttribute('value'));
-    if (!$slide) {
-        console.log("not found")
-        return;
-    };
+function handleCarouselControlClick(carousel: Element, newSlide: Element, event: any, preventDefault: boolean) {
 
+
+    carousel.setAttribute('current-slide', newSlide.id)
     if (preventDefault) {
         event.preventDefault();
     }
-    $slide.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' })
+    newSlide.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' })
 }
 const c = document.getElementsByClassName('custom-carousel')
 for (const item of c) {
     item.querySelector("#controls")?.addEventListener("click", function (event) {
-        handleCarouselControlClick(event, false)
+        const newSlide = document.getElementById(event.target?.getAttribute('value'))
+
+        if (newSlide) {
+            handleCarouselControlClick(item, newSlide, event, false)
+            updateArrowButtonsState(item)
+        }
     })
-    item.querySelector("#controls-arrows")?.addEventListener("click", function (event) {
-        handleCarouselControlClick(event, true)
+    // carousel arrows
+    item.querySelector('#carousel-arrows')?.addEventListener("click", function (event) {
+        const isNextButton = event.target?.id === "nextSlideBtn";
+        onArrowButtonClick(item, event, isNextButton)
     })
+}
+function onArrowButtonClick(carousel: Element, event, isNextSlideBtn: boolean) {
+    const current = carousel.getAttribute('current-slide')
+    if (current) {
+        const newSlideId = getNewSlideId(carousel, (i) => i + (isNextSlideBtn ? 1 : -1))
+
+        if (!newSlideId) return
+
+        const newSlide = document.getElementById(newSlideId)
+
+        if (!newSlide) return
+
+        handleCarouselControlClick(carousel, newSlide, event, true)
+
+        const dot = carousel.querySelector(".controls__dot[value='" + carousel.getAttribute('current-slide') + "']");
+        if (dot) dot.checked = true;
+        updateArrowButtonsState(carousel, event.target)
+
+    }
+}
+function getCurrentSlideStatus(carousel: Element) {
+    const slidesCount = parseInt(carousel.getAttribute('slides-count') ?? '')
+    if (Number.isNaN(slidesCount)) {
+        console.log('ERROR: wrong slides count')
+        return null
+    }
+    const currentIndex = parseSlideIndex(carousel.getAttribute('current-slide') ?? '')
+    return { hasPrev: currentIndex > 1, hasNext: currentIndex < slidesCount }
+}
+function updateArrowButtonsState(carousel: Element, prevButton?: Element, nextBtn?: Element) {
+    const buttonsStatus = getCurrentSlideStatus(carousel)
+    if (!buttonsStatus) return
+    const baseQuery = '#' + carousel.id + ' > #carousel-arrows '
+    if (buttonsStatus.hasNext) { activateBtn(document.querySelector(baseQuery)?.querySelector('#nextSlideBtn')) }
+    else {
+        disableBtn(document.querySelector(baseQuery)?.querySelector('#nextSlideBtn'))
+    }
+    if (buttonsStatus.hasPrev) { activateBtn(document.querySelector(baseQuery)?.querySelector('#prevSlideBtn')) }
+    else { disableBtn(document.querySelector(baseQuery)?.querySelector('#prevSlideBtn')) }
+}
+function parseSlideIndex(id: string) {
+    return parseInt(id.substring(id.lastIndexOf('_') + 1))
+}
+function disableBtn(button: any) {
+    if (!button) {
+        console.log('button to disable was not found')
+        return;
+    }
+    button.classList.add('btn-disabled')
+}
+function activateBtn(button: any) {
+    if (!button) {
+        console.log('button to activate was not found')
+        return;
+    }
+    button.classList.remove('btn-disabled')
+}
+function getNewSlideId(carousel: Element, calculateNewIndex: (current: number) => number) {
+    const currentId = carousel.getAttribute('current-slide')
+    if (!currentId) {
+        console.log('ERROR: could not get current slide')
+        return
+    }
+
+    const newIndex: number = calculateNewIndex(parseSlideIndex(currentId))
+
+    return currentId.substring(0, currentId.lastIndexOf('_')) + '_' + newIndex
 }

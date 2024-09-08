@@ -2,34 +2,64 @@
 interface Props {
     carouselId: string;
     slidesCount: number;
-    whiteControls?: boolean;
+    withArrows?: boolean;
 }
-const { carouselId, slidesCount, whiteControls = false } = Astro.props;
+const { carouselId, slidesCount, withArrows = false } = Astro.props;
 const slidesIds = Array.from(Array(slidesCount).keys()).map((n) => n + 1);
 function controlIsCurrent(index: number) {
     return index == 1 ? { checked: "yes" } : {};
 }
+const isArabic = Astro.currentLocale === "ar";
 ---
 
-<div id={carouselId} class="custom-carousel carousel-container">
+<div
+    id={carouselId}
+    class="custom-carousel carousel-container"
+    current-slide={carouselId + "_" + 1}
+    slides-count={slidesCount}
+>
     <div class="carousel">
         <slot />
     </div>
-    <div
-        id="controls"
-        class="controls"
-        class:list={whiteControls ? "controls-light" : ""}
-    >
+    <div id="controls" class="controls flex">
         {
             slidesIds.map((id) => (
                 <input
                     {...controlIsCurrent(id)}
                     type="radio"
                     name={carouselId}
-                    value={"#" + carouselId + "_" + id}
+                    value={carouselId + "_" + id}
                     class="controls__dot"
                 />
             ))
         }
     </div>
+    {
+        withArrows && (
+            <div
+                id="carousel-arrows"
+                style="direction: ltr !important;"
+                class=" absolute left-1 right-1 top-0 sm:left-5 sm:right-5 sm:top-1/2 flex -translate-y-1/2 transform justify-between"
+            >
+                <button
+                    id={isArabic ? "nextSlideBtn" : "prevSlideBtn"}
+                    class={
+                        "btn btn-sm btn-circle btn-primary active:btn-circle-shadow " +
+                        (isArabic ? "" : "btn-disabled")
+                    }
+                >
+                    ❮
+                </button>
+                <button
+                    id={isArabic ? "prevSlideBtn" : "nextSlideBtn"}
+                    class={
+                        "btn btn-sm btn-circle btn-primary active:btn-circle-shadow " +
+                        (isArabic || slidesCount <= 1 ? "btn-disabled" : "")
+                    }
+                >
+                    ❯
+                </button>
+            </div>
+        )
+    }
 </div>
