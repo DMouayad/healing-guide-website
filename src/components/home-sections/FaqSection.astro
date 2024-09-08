@@ -1,42 +1,87 @@
 ---
 import { i18n } from "@/i18n/utils";
 import SectionTitle from "../SectionTitle.astro";
-const t = i18n(Astro.currentLocale);
 import img from "@images/faq-img.png";
 import DivImage from "../DivImage.astro";
+const t = i18n(Astro.currentLocale);
+const faqtabs = [
+    {
+        tabLabel: t('faq-tab1-label'),
+        items: [
+            { title: t("faq-tab1-q1-title"), body: t("faq-tab1-q1-body") },
+            { title: t("faq-tab1-q2-title"), body: t("faq-tab1-q2-body") },
+            { title: t("faq-tab1-q3-title"), body: t("faq-tab1-q3-body") },
+        ],
+    },
+    {
+        tabLabel: t('faq-tab2-label'),
+        items: [
+            { title: t("faq-tab2-q1-title"), body: t("faq-tab2-q1-body") },
+            { title: t("faq-tab2-q2-title"), body: t("faq-tab2-q2-body") },
+            { title: t("faq-tab2-q3-title"), body: t("faq-tab2-q3-body") },
+        ],
+    },
+    {
+        tabLabel: t('faq-tab3-label'),
+        items: [
+            { title: t("faq-tab3-q3-title"), body: t("faq-tab3-q3-body") },
+            { title: t("faq-tab3-q1-title"), body: t("faq-tab3-q1-body") },
+            { title: t("faq-tab3-q2-title"), body: t("faq-tab3-q2-body") },
+        ]
+    }
+];
+function isInitialTab(index: number) {
+    return index == 0 ? { checked: "yes" } : {};
+}
 ---
 
 <section id="faq">
     <SectionTitle
         mainTitle={t("faq-section-mainTitle")}
         upperTitle={t("faq-section-upperTitle")}
-    />
-
+    ></SectionTitle>
     <div
-        class="flex flex-col-reverse items-center md:items-start md:flex-row my-12 justify-between w-full"
+    class="relative flex flex-col-reverse items-center md:items-start md:flex-row my-12 justify-between w-full"
     >
-        <div class="basis-1/2 join join-vertical">
-            <div
-                class="collapse collapse-arrow rounded-none border-[#CDD6DA40] border-b-[3px]"
-            >
-                <input type="checkbox" />
+    <div class="elipse top-[100px] sm:top-[-130px]"></div>
+    
+    <div role="tablist" class="basis-3/4 tabs tabs-lg tabs-lifted">
+        {faqtabs.map((tab,index) => 
+        <input
+            {...isInitialTab(index)}
+             type="radio"
+             name="faq_tabs"
+             role="tab"
+             class=" tab  min-w-max"
+             aria-label={tab.tabLabel}
+        />
+         <div
+             role="tabpanel"
+             class="tab-content border-2 border-[#CDD6DA40] rounded-box p-6"
+         >
+             <div class="join join-vertical">
+                 {
+                     tab.items.map((item, index) => (
+                         <div class="collapse collapse-arrow rounded-none border-[#CDD6DA40] border-b-[3px]">
+                             <input type="checkbox" />
 
-                <div
-                    class="collapse-title py-6 text-base-content text-2xl font-semibold"
-                >
-                    <span class="text-gradient text-3xl me-10">01</span>
-                    Focus me to see content
-                </div>
-                <div class="collapse-content sec-text text-lg">
-                    <p>
-                        Nibh quisque suscipit fermentum netus nulla cras
-                        porttitor euismod nulla. Orci, dictumst nec aliquet id
-                        ullamcorper venenatis. Fermentum sulla craspor ttitore
-                        ismod nulla.
-                    </p>
-                </div>
-            </div>
-        </div>
+                             <div class="collapse-title py-6 text-base-content text-2xl font-semibold">
+                                 <span class="text-gradient text-3xl me-6">
+                                    {index <10 ? '0': ''}{index + 1}
+                                 </span>
+                                 {item.title}
+                             </div>
+                             <div class="collapse-content sec-text text-lg">
+                                 {(item.body as string)?.split('\n').map(item => <div>{item}</div>)}
+                             </div>
+                         </div>
+                     ))
+                 }
+             </div>
+         </div>
+        )}
+        
+     </div>
         <DivImage
             classList="img size-32 md:size-64 bg-contain"
             options={{ src: img }}
@@ -46,5 +91,22 @@ import DivImage from "../DivImage.astro";
 <style>
     .img {
         transform: matrix(-1, 0, 0, 1, 0, 0);
+    }
+    .elipse {
+        position: absolute;
+        width: 120px;
+        height: 120px;
+        right: -120px;
+        clip-path: ellipse();
+        background: radial-gradient(closest-side, #d1e9da, #ffffff3b);
+        opacity: 0.9;
+    }
+    .tab{
+        --faq-border-color: #CDD6DA40;
+        @apply  border-[#CDD6DA40] !important;
+        @apply border-2 !important;
+        @apply border-b-0 !important;
+        border-inline-start-color: var(--faq-border-color) !important;
+        border-inline-end-color: var(--faq-border-color) !important;
     }
 </style>
