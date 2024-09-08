@@ -35,7 +35,7 @@ const t = i18n(Astro.currentLocale);
                 />
             </div>
         </CustomCarousel>
-        <div class="ellipse top-0 -left-4 md:left-[-100px]"></div>
+        <div class="ellipse top-0 left-0 md:left-[-100px]"></div>
     </div>
 </section>
 <style>
@@ -51,11 +51,9 @@ const t = i18n(Astro.currentLocale);
 
         /* Inside auto layout */
         flex: none;
-        order: 7;
-        flex-grow: 0;
         /* carousel control buttons */
         .controls {
-            @apply translate-y-9;
+            @apply translate-y-8;
         }
     }
     .ellipse {
