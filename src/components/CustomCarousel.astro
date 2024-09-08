@@ -39,12 +39,12 @@ const isArabic = Astro.currentLocale === "ar";
             <div
                 id="carousel-arrows"
                 style="direction: ltr !important;"
-                class=" absolute left-1 right-1 top-0 sm:left-5 sm:right-5 sm:top-1/2 flex -translate-y-1/2 transform justify-between"
+                class=" absolute left-1 right-1  sm:left-5 sm:right-5  flex -translate-y-1/2 transform justify-between"
             >
                 <button
                     id={isArabic ? "nextSlideBtn" : "prevSlideBtn"}
                     class={
-                        "btn btn-sm btn-circle btn-primary active:btn-circle-shadow " +
+                        "btn btn-sm active:btn-circle-shadow " +
                         (isArabic ? "" : "btn-disabled")
                     }
                 >
@@ -53,7 +53,7 @@ const isArabic = Astro.currentLocale === "ar";
                 <button
                     id={isArabic ? "prevSlideBtn" : "nextSlideBtn"}
                     class={
-                        "btn btn-sm btn-circle btn-primary active:btn-circle-shadow " +
+                        "btn btn-sm active:btn-circle-shadow " +
                         (isArabic || slidesCount <= 1 ? "btn-disabled" : "")
                     }
                 >
