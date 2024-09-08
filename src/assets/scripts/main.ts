@@ -159,7 +159,7 @@ function showElementWhenVisible(element: Element) {
                 const stats = document.getElementById('stats')
                 console.log(stats)
                 if (stats)
-                    stats.style.display = 'flex';
+                    stats.style.display = 'grid';
                 observer.disconnect(); // Stop observing once visible
             }
         });

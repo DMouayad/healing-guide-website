@@ -35,7 +35,7 @@ const t = i18n(Astro.currentLocale);
                 />
             </div>
         </CustomCarousel>
-        <div class="ellipse top-4"></div>
+        <div class="ellipse top-0 -left-4 md:left-[-100px]"></div>
     </div>
 </section>
 <style>
@@ -62,7 +62,6 @@ const t = i18n(Astro.currentLocale);
         position: absolute;
         width: 95px;
         height: 95px;
-        left: -100px;
         clip-path: circle();
         background: radial-gradient(closest-side, #ffbe1680, #ffffff3b);
     }
