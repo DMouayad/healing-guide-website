@@ -66,22 +66,24 @@ function handleCarouselControlClick(carousel: Element, newSlide: Element, event:
     }
     newSlide.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' })
 }
-const c = document.getElementsByClassName('custom-carousel')
-for (const item of c) {
-    item.querySelector("#controls")?.addEventListener("click", function (event) {
-        const newSlide = document.getElementById(event.target?.getAttribute('value'))
+document.addEventListener('DOMContentLoaded', function () {
+    const c = document.getElementsByClassName('custom-carousel')
+    for (const item of c) {
+        item.querySelector("#controls")?.addEventListener("click", function (event) {
+            const newSlide = document.getElementById(event.target?.getAttribute('value'))
 
-        if (newSlide) {
-            handleCarouselControlClick(item, newSlide, event, false)
-            updateArrowButtonsState(item)
-        }
-    })
-    // carousel arrows
-    item.querySelector('#carousel-arrows')?.addEventListener("click", function (event) {
-        const isNextButton = event.target?.id === "nextSlideBtn";
-        onArrowButtonClick(item, event, isNextButton)
-    })
-}
+            if (newSlide) {
+                handleCarouselControlClick(item, newSlide, event, false)
+                updateArrowButtonsState(item)
+            }
+        })
+        // carousel arrows
+        item.querySelector('#carousel-arrows')?.addEventListener("click", function (event) {
+            const isNextButton = event.target?.id === "nextSlideBtn";
+            onArrowButtonClick(item, event, isNextButton)
+        })
+    }
+})
 function onArrowButtonClick(carousel: Element, event, isNextSlideBtn: boolean) {
     const current = carousel.getAttribute('current-slide')
     if (current) {
