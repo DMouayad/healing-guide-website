@@ -53,7 +53,7 @@ const imagesSlider = [p1, p2, p3, p4];
     </div>
     <div class="wrapper mt-9 sm:mt-5">
         <CustomCarousel
-            whiteControls={true}
+            withArrows={true}
             slidesCount={imagesSlider.length}
             carouselId="partners_imgs"
         >
@@ -77,15 +77,42 @@ const imagesSlider = [p1, p2, p3, p4];
         background-repeat: no-repeat;
         background-position: center;
     }
+
     .wrapper {
         .custom-carousel {
+            #carousel-arrows {
+                @apply justify-between;
+                @apply left-0;
+                @apply right-0;
+                @apply top-1/2;
+
+                .btn {
+                    @apply rounded-sm;
+                    @apply size-9;
+                    @apply border-none;
+                    @apply bg-white;
+
+                    &.btn-disabled {
+                        @apply bg-base-300;
+                        opacity: 0.9;
+                    }
+                }
+            }
             .controls {
                 @apply bottom-3;
-                @apply md:text-end;
-                @apply md:bottom-11;
-                @apply md:left-12;
+                @apply md:bottom-5;
                 .controls__dot {
                     @apply drop-shadow-md;
+                    color: white;
+
+                    &:hover {
+                        background-color: white;
+                        opacity: 0.9;
+                    }
+
+                    &:checked {
+                        background-color: white;
+                    }
                 }
             }
         }
