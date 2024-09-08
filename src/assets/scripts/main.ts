@@ -1,5 +1,6 @@
 // navigate to section when a button with set attribute is clicked
-document.querySelectorAll("[section-link]").forEach((btn) => {
+const sectionsButtons = Array.from(document.querySelectorAll("[section-link]"))
+sectionsButtons.forEach((btn) => {
     btn.addEventListener("click", function () {
         document
             .getElementById(btn.getAttribute("section-link") ?? "")
@@ -67,7 +68,7 @@ function handleCarouselControlClick(carousel: Element, newSlide: Element, event:
     newSlide.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' })
 }
 document.addEventListener('DOMContentLoaded', function () {
-    const c = document.getElementsByClassName('custom-carousel')
+    const c = Array.from(document.getElementsByClassName('custom-carousel'))
     for (const item of c) {
         item.querySelector("#controls")?.addEventListener("click", function (event) {
             const newSlide = document.getElementById(event.target?.getAttribute('value'))
@@ -83,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function () {
             onArrowButtonClick(item, event, isNextButton)
         })
     }
-})
+}, true)
 function onArrowButtonClick(carousel: Element, event, isNextSlideBtn: boolean) {
     const current = carousel.getAttribute('current-slide')
     if (current) {
@@ -151,3 +152,24 @@ function getNewSlideId(carousel: Element, calculateNewIndex: (current: number) =
 
     return currentId.substring(0, currentId.lastIndexOf('_')) + '_' + newIndex
 }
+function showElementWhenVisible(element: Element) {
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const stats = document.getElementById('stats')
+                console.log(stats)
+                if (stats)
+                    stats.style.display = 'flex';
+                observer.disconnect(); // Stop observing once visible
+            }
+        });
+    }, {
+        threshold: 1.0
+    });
+
+    observer.observe(element);
+}
+
+// Example usage:
+const elementToShow = document.getElementById('stats-section');
+showElementWhenVisible(elementToShow);

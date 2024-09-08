@@ -2,44 +2,108 @@
 import { i18n } from "@/i18n/utils";
 import SectionTitle from "../SectionTitle.astro";
 
-const stats = [
-    {
-        labelKey: "positive-review",
-        value: "311+",
-    },
-    {
-        labelKey: "monthly-visitor",
-        value: "1000+",
-    },
-    {
-        labelKey: "doctor",
-        value: "120+",
-    },
-    {
-        labelKey: "med-facility",
-        value: "30+",
-    },
-];
 const t = i18n(Astro.currentLocale);
 ---
 
-<section>
+<section id="stats-section">
     <SectionTitle
         mainTitle={t("stats-section-mainTitle")}
         upperTitle={t("stats-section-upperTitle")}
     />
-    <div class="stats w-full mt-[80px] grid-rows-2 md:grid-rows-1 gap-2">
-        {
-            stats.map((item) => (
-                <div class="stat place-items-center">
-                    <div class="stat-value text-gradient mb-6">
-                        {item.value}
-                    </div>
-                    <div class="stat-title text-2xl font-semibold text-base-content/90">
-                        {t(item.labelKey)}
-                    </div>
-                </div>
-            ))
-        }
+    <div
+        id="stats"
+        style="display: none;"
+        class="stats w-full mt-[80px] grid-rows-2 md:grid-rows-1 gap-2"
+    >
+        <div class="stat place-items-center">
+            <div class="stat-value text-gradient mb-6">
+                <span
+                    class={`animate-[counter_2s_ease-out_forwards] tabular-nums [counter-set:_num_var(--num-positive-rating)] before:content-[counter(num)]`}
+                >
+                    <span class="sr-only"></span>+
+                </span>
+            </div>
+            <div class="stat-title text-2xl font-semibold text-base-content/90">
+                {t("positive-review")}
+            </div>
+        </div>
+        <div class="stat place-items-center">
+            <div class="stat-value text-gradient mb-6">
+                <span
+                    class={`animate-[counter_4s_ease-in-out_forwards] tabular-nums [counter-set:_num_var(--num-monthly-visitor)] before:content-[counter(num)]`}
+                >
+                    <span class="sr-only"> </span>+
+                </span>
+            </div>
+            <div class="stat-title text-2xl font-semibold text-base-content/90">
+                {t("monthly-visitor")}
+            </div>
+        </div>
+        <div class="stat place-items-center">
+            <div class="stat-value text-gradient mb-6">
+                <span
+                    class={`animate-[counter_2s_ease-out_forwards] tabular-nums [counter-set:_num_var(--num-doctor)] before:content-[counter(num)]`}
+                >
+                    <span class="sr-only"> </span>+
+                </span>
+            </div>
+            <div class="stat-title text-2xl font-semibold text-base-content/90">
+                {t("doctor")}
+            </div>
+        </div>
+        <div class="stat place-items-center">
+            <div class="stat-value text-gradient mb-6">
+                <span
+                    class={`animate-[counter_2s_ease-out_forwards] tabular-nums [counter-set:_num_var(--num-medical-facility)] before:content-[counter(num)]`}
+                >
+                    <span class="sr-only"> </span>+
+                </span>
+            </div>
+            <div class="stat-title text-2xl font-semibold text-base-content/90">
+                {t("med-facility")}
+            </div>
+        </div>
     </div>
 </section>
+
+<style>
+    @property --num-positive-rating {
+        syntax: "<integer>";
+        initial-value: 0;
+        inherits: false;
+    }
+
+    @property --num-monthly-visitor {
+        syntax: "<integer>";
+        initial-value: 0;
+        inherits: false;
+    }
+
+    @property --num-doctor {
+        syntax: "<integer>";
+        initial-value: 0;
+        inherits: false;
+    }
+
+    @property --num-medical-facility {
+        syntax: "<integer>";
+        initial-value: 0;
+        inherits: false;
+    }
+
+    @keyframes counter {
+        from {
+            --num-positive-rating: 0;
+            --num-monthly-visitor: 0;
+            --num-doctor: 0;
+            --num-medical-facility: 0;
+        }
+
+        to {
+            --num-monthly-visitor: 1000;
+            --num-positive-rating: 311;
+            --num-doctor: 120;
+            --num-medical-facility: 30;
+        }
+    }
+</style>
