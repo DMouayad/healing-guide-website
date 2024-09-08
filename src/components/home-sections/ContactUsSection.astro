@@ -1,0 +1,127 @@
+---
+import { i18n } from "@/i18n/utils";
+import SectionTitle from "../SectionTitle.astro";
+const t = i18n(Astro.currentLocale);
+const formTextFields = [
+    {
+        placeHolder: "first-name",
+        pattern: "([a-zA-Zs?])+",
+    },
+    {
+        placeHolder: "last-name",
+        pattern: "([a-zA-Zs?])+",
+    },
+    {
+        placeHolder: "email",
+        type: "email",
+    },
+];
+---
+
+<section id="contact">
+    <SectionTitle
+        mainTitle={t("contact-sec-mainTitle")}
+        upperTitle={t("contact-sec-upperTitle")}
+    />
+
+    <div class="ellipse top-[100px] sm:top-1/2"></div>
+    <div class="ellipse-2 top-2/3 left-[0] sm:top-[160px]"></div>
+    <form>
+        <div class="wrapper w-full max-w-3xl mx-auto">
+            {
+                formTextFields.map((field) => (
+                    <input
+                        required
+                        pattern={field.pattern}
+                        type={field.type ?? "text"}
+                        placeholder={t(field.placeHolder)}
+                        class="input input-field input-bordered w-full"
+                    />
+                ))
+            }
+
+            <textarea
+                maxlength="500"
+                class="textarea textarea-bordered w-full"
+                placeholder={t("message")}></textarea>
+            <button type="submit" class="btn btn-primary w-full"
+                >{t("send")}</button
+            >
+        </div>
+    </form>
+</section>
+<style>
+    .ellipse {
+        position: absolute;
+        width: 120px;
+        height: 120px;
+        right: -60px;
+        clip-path: ellipse();
+        background: radial-gradient(closest-side, #ffbe16, #ffffff3b);
+        opacity: 0.25;
+    }
+    .ellipse-2 {
+        position: absolute;
+        width: 65px;
+        height: 65px;
+        left: 0;
+        clip-path: circle();
+        background: radial-gradient(closest-side, #9cd161, #ffffff3b);
+    }
+
+    .input-field {
+        /* Auto layout */
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 10px;
+        height: 70px;
+        border: 1px solid #6b739e40;
+        border-radius: 7px;
+
+        /* Inside auto layout */
+        flex: none;
+        order: 0;
+        align-self: stretch;
+        flex-grow: 0;
+        margin: 0 auto;
+    }
+    .input-field,
+    textarea {
+        transition: all 250ms ease;
+        padding: 10px 30px;
+        position: relative;
+
+        &:focus-visible {
+            @apply border-primary;
+            outline: none;
+            @apply shadow;
+        }
+    }
+    section {
+        position: relative;
+    }
+    .wrapper {
+        margin-top: 15px;
+        box-sizing: border-box;
+        /* Auto layout */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 30px 48px;
+        gap: 34px;
+
+        height: 644px;
+
+        background: #ffffff0d;
+        border-radius: 15px;
+
+        /* Inside auto layout */
+        flex: none;
+        order: 1;
+        align-self: stretch;
+        flex-grow: 0;
+    }
+</style>

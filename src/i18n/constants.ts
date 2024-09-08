@@ -87,8 +87,13 @@ export const TRANSLATIONS: { [key: string]: any } = {
         'faq-tab3-q2-body': 'بوساطة تطبيق الدليل الشافي على الموبايل عن طريق الذهاب إلى الصفحة التي تحوي على الخطأ والضغط على زر "الإبلاغ عن خطأ - اقتراح تعديل"  ثم ملء البيانات المطلوبة والضغط على زر إرسال \nأو عن طريق البريد الإلكتروني.',
         'faq-tab3-q3-title': 'كيف يتم جمع البيانات عن المنشآت الطبية؟',
         'faq-tab3-q3-body': 'المؤسسات الطبية نفسها: جميع البيانات تتم إضافتها عن طريق فريق تابع لهذه المنشأة الطبية فهذا يضمن موثوقية ودقة البيانات.\n',
-        'faq-tab4-label': '',
-
+        'contact-sec-upperTitle': 'رأيكم يهمّنا',
+        'contact-sec-mainTitle': 'تواصل معنا',
+        'send': 'إرسال',
+        'first-name': 'الاسم الأول',
+        'last-name': 'الكنية',
+        'email': 'البريد الالكتروني',
+        'message': 'رسالتك أو ملاحظتك'
     },
     "en": {
         'site-name': 'Healing Guide',
@@ -151,6 +156,13 @@ export const TRANSLATIONS: { [key: string]: any } = {
         'faq-2-body': ' Nibh quisque suscipit fermentum netus nulla cras porttitor euismod nulla. Orci, dictumst nec aliquet id ullamcorper venenatis. Fermentum sulla craspor ttitore ismod nulla',
         'faq-3-title': 'Lorem ipsum dolor sit amet, consectetur ',
         'faq-3-body': ' Nibh quisque suscipit fermentum netus nulla cras porttitor euismod nulla. Orci, dictumst nec aliquet id ullamcorper venenatis. Fermentum sulla craspor ttitore ismod nulla',
+        'contact-sec-upperTitle': 'We appreciate your feedback',
+        'contact-sec-mainTitle': 'Contact Us',
+        'send': 'SEND',
+        'first-name': 'First name',
+        'last-name': 'Last name',
+        'email': 'Email Address',
+        'message': 'Your message or feedback'
     },
 } as const;
 export const EN_USEFUL_LINKS = [

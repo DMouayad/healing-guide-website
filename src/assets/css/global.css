@@ -19,16 +19,22 @@ html {
 		color: var(--sec-text);
 	}
 
-	.bg-gradient {
-		background: linear-gradient(90deg, #4f94e5 13.91%, #20bfb4 64.52%);
-		color: white;
-	}
 
 	.text-gradient {
 		background: linear-gradient(90deg, #4f94e5 13.91%, #20bfb4 64.52%);
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 		background-clip: text;
+	}
+}
+
+.bg-gradient {
+	background: linear-gradient(90deg, #4f94e5 13.91%, #20bfb4 64.52%);
+	color: white;
+
+	&:hover {
+		box-shadow: 0px 2.25px 9.01px 0px #4f94e580;
+
 	}
 }
 
