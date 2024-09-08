@@ -45,7 +45,7 @@ function isInitialTab(index: number) {
     >
     <div class="elipse top-[100px] sm:top-[-130px]"></div>
     
-    <div role="tablist" class="basis-3/4 tabs tabs-lg tabs-lifted">
+    <div role="tablist" class="basis-3/4 tabs md:tabs-lg tabs-lifted">
         {faqtabs.map((tab,index) => 
         <input
             {...isInitialTab(index)}
@@ -65,13 +65,13 @@ function isInitialTab(index: number) {
                          <div class="collapse collapse-arrow rounded-none border-[#CDD6DA40] border-b-[3px]">
                              <input type="checkbox" />
 
-                             <div class="collapse-title py-6 text-base-content text-2xl font-semibold">
+                             <div class="collapse-title py-6 text-base-content md:text-xl lg:text-2xl font-semibold">
                                  <span class="text-gradient text-3xl me-6">
                                     {index <10 ? '0': ''}{index + 1}
                                  </span>
                                  {item.title}
                              </div>
-                             <div class="collapse-content sec-text text-lg">
+                             <div class="collapse-content sec-text lg:text-lg">
                                  {(item.body as string)?.split('\n').map(item => <div>{item}</div>)}
                              </div>
                          </div>
@@ -83,7 +83,7 @@ function isInitialTab(index: number) {
         
      </div>
         <DivImage
-            classList="img size-32 md:size-64 bg-contain"
+            classList="img size-32 md:size-48 lg:size-64 bg-contain mb-8 md:mb-0"
             options={{ src: img }}
         />
     </div>
@@ -91,6 +91,8 @@ function isInitialTab(index: number) {
 <style>
     .img {
         transform: matrix(-1, 0, 0, 1, 0, 0);
+        background-repeat: no-repeat;
+        background-position: center;
     }
     .elipse {
         position: absolute;
