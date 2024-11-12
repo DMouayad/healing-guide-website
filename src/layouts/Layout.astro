@@ -20,6 +20,7 @@ var { title } = Astro.props;
 title =
 	i18n(currentLanguage)("site-name") +
 	(title.trim().length > 0 ? +"|" + title : "");
+var faveIconFolderPath = URL_BASE + "/favicon";
 ---
 
 <!doctype html>
@@ -34,8 +35,27 @@ title =
 		<meta name="viewport" content="width=device-width" />
 		<link
 			rel="icon"
-			type="image/svg+xml"
-			href={URL_BASE + "/favicon.svg"}
+			href={faveIconFolderPath + `/favicon.ico`}
+			type="image/x-icon"
+			sizes="any"
+		/>
+		<link
+			rel="icon-192"
+			type="image/png"
+			href={faveIconFolderPath + `/icon-192.png`}
+			type="image/png"
+			sizes="192x192"
+		/>
+		<link
+			rel="icon-512"
+			type="image/png"
+			href={faveIconFolderPath + `/icon-512.png`}
+			type="image/png"
+			sizes="512x512"
+		/>
+		<link
+			rel="apple-touch-icon"
+			href={faveIconFolderPath + `/apple-touch-icon.png`}
 		/>
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
