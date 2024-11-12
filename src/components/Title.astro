@@ -1,0 +1,9 @@
+---
+import { localeSiteName } from "@/i18n/utils";
+import Logo from "./Logo.astro";
+---
+
+<a href="" class="btn btn-ghost px-0 md:text-xl">
+    <Logo />
+    {localeSiteName(Astro.currentLocale)}
+</a>

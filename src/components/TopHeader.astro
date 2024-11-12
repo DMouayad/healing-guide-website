@@ -1,8 +1,8 @@
 ---
-import { localeSiteName } from "@localization/utils";
 import DownloadAppBtn from "./DownloadAppBtn.astro";
 import TopHeaderContact from "./TopHeaderContact.astro";
 import LangSwitch from "./nav/LangSwitch.astro";
+import Title from "./Title.astro";
 ---
 
 <div class="sticky backdrop-blur backdrop-brightness-100 z-50 top-0 border-b">
@@ -28,9 +28,7 @@ import LangSwitch from "./nav/LangSwitch.astro";
           </svg>
         </label>
       </div>
-      <a href="" class="btn btn-ghost px-0 md:text-xl"
-        >{localeSiteName(Astro.currentLocale)}</a
-      >
+      <Title />
       <div class="grow"></div>
       <div class="md:hidden">
         <DownloadAppBtn />
