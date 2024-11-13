@@ -17,15 +17,12 @@ const { title, description, isLTR, ctaBtnTitle, ctaBtnLink } = Astro.props;
     <div class="card md:card-side w-full h-[800px] min-h-fit md:h-auto">
         {
             isLTR && (
-                <div class="hidden md:grid h-[530px] basis-1/2 gap-2 grid grid-rows-6 grid-cols-4">
-                    <div class="feat-img col-span-2 row-span-4" />
-                    <div class="feat-img col-span-2 row-span-2" />
-                    <div class="feat-img col-span-2 row-span-4" />
-                    <div class="feat-img col-span-2 row-span-2" />
+                <div class="hidden md:block basis-2/3">
+                    <slot name="image" />
                 </div>
             )
         }
-        <div class="card-body basis-1/2">
+        <div class="card-body">
             <div class="card-title flex flex-row mb-6">
                 <slot />
                 <div class="text-2xl ms-4 capitalize md:text-4xl">{title}</div>
@@ -53,21 +50,13 @@ const { title, description, isLTR, ctaBtnTitle, ctaBtnLink } = Astro.props;
         </div>
         {
             !isLTR && (
-                <div class="hidden md:grid h-[530px] basis-1/2 gap-2 grid grid-rows-6 grid-cols-4">
-                    <div class="feat-img col-span-2 row-span-4" />
-                    <div class="feat-img col-span-2 row-span-2" />
-                    <div class="feat-img col-span-2 row-span-4" />
-                    <div class="feat-img col-span-2 row-span-2" />
+                <div class="hidden md:block basis-2/3">
+                    <slot name="image" />
                 </div>
             )
         }
-        <div
-            class="md:hidden h-[530px] basis-1/2 gap-2 grid grid-rows-6 grid-cols-4"
-        >
-            <div class="feat-img col-span-2 row-span-4"></div>
-            <div class="feat-img col-span-2 row-span-2"></div>
-            <div class="feat-img col-span-2 row-span-4"></div>
-            <div class="feat-img col-span-2 row-span-2"></div>
+        <div class="md:hidden h-[530px] basis-1/2">
+            <slot name="image" />
         </div>
     </div>
 </section>

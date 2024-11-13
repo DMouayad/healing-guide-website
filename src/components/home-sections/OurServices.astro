@@ -1,7 +1,9 @@
 ---
 import { i18n } from "@/i18n/utils";
 import SectionTitle from "../SectionTitle.astro";
-import img from "@images/nurse-with-mask.png";
+import nurseImg from "@images/nurse-with-mask.png";
+import mobileMockUpImg from "@images/mobile_mockup.png";
+import laptopMockUpImg from "@images/laptop_mockup.png";
 import FeatureSection from "../FeatureSection.astro";
 import DivImage from "../DivImage.astro";
 const t = i18n(Astro.currentLocale);
@@ -16,7 +18,7 @@ const t = i18n(Astro.currentLocale);
         <DivImage
             classList="main-img h-[400px] sm:h-[600px]"
             options={{
-                src: img,
+                src: nurseImg,
                 alt: "A masked nurse",
                 decoding: "async",
                 inferSize: true,
@@ -56,8 +58,19 @@ const t = i18n(Astro.currentLocale);
     title={t("service-card-1-title")}
     description={t("service-card-1-desc")}
     ctaBtnTitle={t("service-card-1-cta")}
-    isLTR={false}
+    isLTR={true}
 >
+    <DivImage
+        slot="image"
+        class:list="section-image bg-cover h-[530px] "
+        options={{
+            width: 1000,
+            height: 1000,
+            src: mobileMockUpImg,
+            decoding: "async",
+            inferSize: true,
+        }}
+    />
     <svg
         width="30"
         height="52"
@@ -87,8 +100,19 @@ const t = i18n(Astro.currentLocale);
     title={t("service-card-2-title")}
     description={t("service-card-2-desc")}
     ctaBtnTitle={t("service-card-2-cta")}
-    isLTR={true}
+    isLTR={false}
 >
+    <DivImage
+        slot="image"
+        class:list="section-image h-[500px]  bg-contain"
+        options={{
+            width: 700,
+            height: 800,
+            src: laptopMockUpImg,
+            decoding: "async",
+            inferSize: true,
+        }}
+    />
     <svg
         width="51"
         height="53"
@@ -117,6 +141,9 @@ const t = i18n(Astro.currentLocale);
     </svg>
 </FeatureSection>
 <style>
+    .section-image {
+        @apply bg-no-repeat  bg-center;
+    }
     .elipse {
         position: absolute;
         width: 65px;
