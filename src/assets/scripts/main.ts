@@ -4,7 +4,7 @@ sectionsButtons.forEach((btn) => {
     btn.addEventListener("click", function () {
         document
             .getElementById(btn.getAttribute("section-link") ?? "")
-            ?.scrollIntoView({ behavior: "smooth", inline: "nearest" });
+            ?.scrollIntoView({ behavior: "smooth", block: "start" });
         if (drawerInput?.checked) {
             drawerInput.click();
         }
