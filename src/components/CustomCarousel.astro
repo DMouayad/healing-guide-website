@@ -1,10 +1,11 @@
 ---
 interface Props {
     carouselId: string;
+    classList?: string;
     slidesCount: number;
     withArrows?: boolean;
 }
-const { carouselId, slidesCount, withArrows = false } = Astro.props;
+const { carouselId, slidesCount, classList, withArrows = false } = Astro.props;
 const slidesIds = Array.from(Array(slidesCount).keys()).map((n) => n + 1);
 function controlIsCurrent(index: number) {
     return index == 1 ? { checked: "yes" } : {};
@@ -14,7 +15,7 @@ const isArabic = Astro.currentLocale === "ar";
 
 <div
     id={carouselId}
-    class="custom-carousel carousel-container"
+    class={"custom-carousel carousel-container " + (classList ?? "")}
     current-slide={carouselId + "_" + 1}
     slides-count={slidesCount}
 >

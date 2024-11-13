@@ -7,7 +7,7 @@ import { URL_BASE } from "@/common/constants";
 const t = i18n(Astro.currentLocale);
 ---
 
-<div class="flex flex-row mt-2 md:justify-between">
+<div class="flex py-3 flex-row mt-2 md:justify-between relative">
     <div class="md:max-w-2xl relative">
         <div
             class="mt-[4rem] lg:leading-[5.2rem] font-semibold text-2xl lg:text-6xl"
@@ -34,13 +34,10 @@ const t = i18n(Astro.currentLocale);
                 {t("learn-more")}</button
             >
         </div>
-        <div
-            class="elipse-3 bottom-[-90px] left-[-90px] sm:right-1/3 md:bottom-[20px]"
-        >
+        <div class="elipse-3 bottom-[-90px] sm:right-2/3 md:bottom-[20px]">
         </div>
     </div>
-
-    <div class="max-w-52 md:max-w-full">
+    <div class="max-w-36 md:max-w-full">
         <Image
             quality="100"
             src={heroImage}
@@ -48,26 +45,24 @@ const t = i18n(Astro.currentLocale);
             alt="a doctor hodling a heart emoji"
         />
     </div>
-    <div class="elipse top-[100px] sm:top-[200px]"></div>
-    <div class="elipse-2 top-[80px] sm:left-[0] sm:top-[180px]"></div>
 </div>
+<div class="hidden md:block elipse-2 top-[70px] sm:top-[3%] left-0"></div>
+<div class="elipse right-[0%] sm:right-[0%] top-0"></div>
 <style>
     .elipse {
         position: absolute;
         width: 120px;
         height: 120px;
-        right: -60px;
-        clip-path: ellipse();
+        clip-path: circle();
         background: #d1e9da;
         opacity: 0.25;
     }
     .elipse-2 {
         position: absolute;
-        width: 65px;
-        height: 65px;
-        left: 0;
+        width: 50px;
+        height: 50px;
         clip-path: circle();
-        background: radial-gradient(closest-side, #9cd161, #ffffff3b);
+        background: radial-gradient(closest-side, #9dd161df, #ffffff3b);
     }
     .elipse-3 {
         position: absolute;

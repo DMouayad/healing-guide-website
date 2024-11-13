@@ -7,12 +7,16 @@ const t = i18n(Astro.currentLocale);
 ---
 
 <section id="reviews">
-    <div class="wrapper px-4 py-11 md:py-16 md:px-36 gap-11">
+    <div class="wrapper py-11 md:py-16 md:px-36 gap-11">
         <SectionTitle
             mainTitle={t("reviews-section-mainTitle")}
             upperTitle={t("reviews-section-upperTitle")}
         />
-        <CustomCarousel slidesCount={3} carouselId="reviews_carousel">
+        <CustomCarousel
+            classList="pb-4"
+            slidesCount={3}
+            carouselId="reviews_carousel"
+        >
             <div id="reviews_carousel_1" class="carousel__item">
                 <ReviewCard
                     name={t("review-1-name")}
@@ -35,7 +39,6 @@ const t = i18n(Astro.currentLocale);
                 />
             </div>
         </CustomCarousel>
-        <div class="ellipse top-0 left-0 md:left-[-100px]"></div>
     </div>
 </section>
 <style>
@@ -48,7 +51,7 @@ const t = i18n(Astro.currentLocale);
         background: #ffffff;
         box-shadow: 0px 19px 69px rgba(224, 223, 233, 0.38);
         border-radius: 15px;
-
+        overflow-x: hidden;
         /* Inside auto layout */
         flex: none;
         /* carousel control buttons */
@@ -56,6 +59,7 @@ const t = i18n(Astro.currentLocale);
             @apply translate-y-8;
         }
     }
+
     .ellipse {
         position: absolute;
         width: 95px;

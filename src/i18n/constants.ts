@@ -22,7 +22,7 @@ export const TRANSLATIONS: { [key: string]: any } = {
         'feature-card-3': 'البحث عن الأطباء والعيادات التخصصية',
         'feature-card-4': 'جدول مناوبات أطباء الدراسات',
         'feature-card-5': ' بيانات الموقع والذهاب إلى المنشأة',
-        'feature-card-6': 'التحكم ',
+        'feature-card-6': 'حجز المواعيد بشكل مسبق',
         'service-card-1-title': 'تطبيق الأطباء والمرضى',
         'service-card-1-desc': [{
             'title': 'الأطباء',

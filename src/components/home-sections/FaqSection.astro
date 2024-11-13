@@ -6,7 +6,7 @@ import DivImage from "../DivImage.astro";
 const t = i18n(Astro.currentLocale);
 const faqtabs = [
     {
-        tabLabel: t('faq-tab1-label'),
+        tabLabel: t("faq-tab1-label"),
         items: [
             { title: t("faq-tab1-q1-title"), body: t("faq-tab1-q1-body") },
             { title: t("faq-tab1-q2-title"), body: t("faq-tab1-q2-body") },
@@ -14,7 +14,7 @@ const faqtabs = [
         ],
     },
     {
-        tabLabel: t('faq-tab2-label'),
+        tabLabel: t("faq-tab2-label"),
         items: [
             { title: t("faq-tab2-q1-title"), body: t("faq-tab2-q1-body") },
             { title: t("faq-tab2-q2-title"), body: t("faq-tab2-q2-body") },
@@ -22,30 +22,30 @@ const faqtabs = [
         ],
     },
     {
-        tabLabel: t('faq-tab3-label'),
+        tabLabel: t("faq-tab3-label"),
         items: [
             { title: t("faq-tab3-q3-title"), body: t("faq-tab3-q3-body") },
             { title: t("faq-tab3-q1-title"), body: t("faq-tab3-q1-body") },
             { title: t("faq-tab3-q2-title"), body: t("faq-tab3-q2-body") },
-        ]
-    }
+        ],
+    },
 ];
 function isInitialTab(index: number) {
     return index == 0 ? { checked: "yes" } : {};
 }
 ---
 
-<section id="faq">
+<section id="faq" class="relative">
     <SectionTitle
         mainTitle={t("faq-section-mainTitle")}
         upperTitle={t("faq-section-upperTitle")}
-    ></SectionTitle>
+    />
     <div
-    class="relative flex flex-col-reverse items-center md:items-start md:flex-row my-12 justify-between w-full"
+        class="flex  flex-col-reverse items-center md:items-start md:flex-row ps-[40px] pe-3 md:p-0 mt-8 md:mt-[50px] overflow-x-auto justify-between"
     >
-    <div class="elipse top-[100px] sm:top-[-130px]"></div>
-    
-    <div role="tablist" class="basis-3/4 tabs md:tabs-lg tabs-lifted">
+        <div class="hidden md:block elipse top-[30px] sm:top-[-130px]"></div>
+
+        <div role="tablist" class="basis-3/4 tabs md:tabs-lg tabs-lifted">
         {faqtabs.map((tab,index) => 
         <input
             {...isInitialTab(index)}
@@ -57,7 +57,7 @@ function isInitialTab(index: number) {
         />
          <div
              role="tabpanel"
-             class="tab-content border-2 border-[#CDD6DA40] rounded-box p-6"
+             class="tab-content border-2 border-[#CDD6DA40] rounded-box"
          >
              <div class="join join-vertical">
                  {
@@ -83,7 +83,7 @@ function isInitialTab(index: number) {
         
      </div>
         <DivImage
-            classList="img size-32 md:size-48 lg:size-64 bg-contain mb-8 md:mb-0"
+            classList="hidden md:block img size-24 md:size-48 lg:size-64 bg-contain mb-8 md:mb-0"
             options={{ src: img }}
         />
     </div>
@@ -98,14 +98,14 @@ function isInitialTab(index: number) {
         position: absolute;
         width: 120px;
         height: 120px;
-        right: -120px;
+        right: 0;
         clip-path: ellipse();
         background: radial-gradient(closest-side, #d1e9da, #ffffff3b);
         opacity: 0.9;
     }
-    .tab{
-        --faq-border-color: #CDD6DA40;
-        @apply  border-[#CDD6DA40] !important;
+    .tab {
+        --faq-border-color: #cdd6da40;
+        @apply border-[#CDD6DA40] !important;
         @apply border-2 !important;
         @apply border-b-0 !important;
         border-inline-start-color: var(--faq-border-color) !important;

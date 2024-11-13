@@ -14,7 +14,7 @@ const { title, description, isLTR, ctaBtnTitle, ctaBtnLink } = Astro.props;
 ---
 
 <section>
-    <div class="card md:card-side w-full h-[800px] min-h-fit md:h-auto">
+    <div class="card md:card-side w-full min-h-fit">
         {
             isLTR && (
                 <div class="hidden md:block basis-2/3">
@@ -50,12 +50,12 @@ const { title, description, isLTR, ctaBtnTitle, ctaBtnLink } = Astro.props;
         </div>
         {
             !isLTR && (
-                <div class="hidden md:block basis-2/3">
+                <div class="hidden min-h-[400px] md:block basis-2/3">
                     <slot name="image" />
                 </div>
             )
         }
-        <div class="md:hidden h-[530px] basis-1/2">
+        <div class="md:hidden">
             <slot name="image" />
         </div>
     </div>
