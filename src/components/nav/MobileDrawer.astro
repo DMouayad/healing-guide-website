@@ -22,7 +22,7 @@ import LangSwitch from "./LangSwitch.astro";
       {
         getLocaleNavItems(Astro.currentLocale).map((item) => (
           <li class="py-1">
-            <a href={item.link}>{item.label}</a>
+            <a section-link={item.link}>{item.label}</a>
           </li>
         ))
       }

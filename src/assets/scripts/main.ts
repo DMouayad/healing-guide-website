@@ -5,6 +5,9 @@ sectionsButtons.forEach((btn) => {
         document
             .getElementById(btn.getAttribute("section-link") ?? "")
             ?.scrollIntoView({ behavior: "smooth", inline: "nearest" });
+        if (drawerInput?.checked) {
+            drawerInput.click();
+        }
     });
 });
 // lazy loading background images
@@ -172,4 +175,17 @@ function showElementWhenVisible(element: Element) {
 
 // Example usage:
 const elementToShow = document.getElementById('stats-section');
-showElementWhenVisible(elementToShow);
+if (elementToShow) {
+    showElementWhenVisible(elementToShow);
+}
+
+const topNavBar = document.getElementById('topHeader')
+const drawerInput = document.getElementById('nav-drawer');
+function listenForDrawerStatus() {
+    drawerInput?.addEventListener('change', (event) => {
+        topNavBar?.classList.toggle('z-50');
+    });
+}
+if (topNavBar) {
+    listenForDrawerStatus();
+}
