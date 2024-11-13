@@ -97,7 +97,7 @@ export const TRANSLATIONS: { [key: string]: any } = {
     },
     "en": {
         'site-name': 'Healing Guide',
-        'download-btn-text': 'Download the app',
+        'download-btn-text': 'Get the app',
         'hero-title': 'Find a suitable treatment near you',
         'hero-subtitle': 'Your best choice for medical services in Damascus city',
         'learn-more': 'Learn More',
