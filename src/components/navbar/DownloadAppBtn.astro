@@ -1,7 +1,13 @@
 ---
+import { URL_BASE } from "@/common/constants";
 import { i18n } from "@/i18n/utils";
+export const downloadLink = URL_BASE + "/assets/Healing_Guide_v0.0.1.apk";
+export const downloadFileName = "HealingGuide-v0.0.1.apk";
 ---
 
-<a class="btn btn-primary btn-outline btn-sm md:btn-md"
+<a
+    class="btn btn-primary btn-outline btn-sm md:btn-md"
+    download={downloadFileName}
+    href={downloadLink}
     >{i18n(Astro.currentLocale)("download-btn-text")}
 </a>
