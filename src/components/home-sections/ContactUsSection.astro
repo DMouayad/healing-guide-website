@@ -27,7 +27,7 @@ const formTextFields = [
     <div class="ellipse top-[100px] sm:top-1/2"></div>
     <div class="ellipse-2 top-2/3 left-[0] sm:top-[160px]"></div>
     <form>
-        <div class="wrapper w-full max-w-3xl mx-auto">
+        <div class="wrapper w-full max-w-sm md:max-w-xl mx-auto">
             {
                 formTextFields.map((field) => (
                     <input
@@ -76,7 +76,7 @@ const formTextFields = [
         justify-content: flex-end;
         align-items: center;
         gap: 10px;
-        height: 70px;
+        height: 60px;
         border: 1px solid #6b739e40;
         border-radius: 7px;
 
@@ -90,7 +90,7 @@ const formTextFields = [
     .input-field,
     textarea {
         transition: all 250ms ease;
-        padding: 10px 30px;
+        padding: 0px 30px;
         position: relative;
 
         &:focus-visible {
@@ -110,11 +110,11 @@ const formTextFields = [
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding: 30px 48px;
-        gap: 34px;
+        padding: 30px 10px;
+        gap: 20px;
 
-        height: 644px;
-
+        height: fit-content;
+        min-height: 420px;
         background: #ffffff0d;
         border-radius: 15px;
 
