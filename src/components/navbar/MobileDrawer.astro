@@ -1,7 +1,7 @@
 ---
 import { getLocaleNavItems, i18n } from "@/i18n/utils";
-import TopHeaderContact from "../TopHeaderContact.astro";
 import LangSwitch from "./LangSwitch.astro";
+import ContactInfo from "./ContactInfo.astro";
 ---
 
 <div class="drawer-side">
@@ -15,9 +15,7 @@ import LangSwitch from "./LangSwitch.astro";
       <LangSwitch />
     </div>
     <div class="divider"></div>
-    <div class="">
-      <TopHeaderContact />
-    </div>
+    <ContactInfo />
     <ul class="text-base-content">
       {
         getLocaleNavItems(Astro.currentLocale).map((item) => (

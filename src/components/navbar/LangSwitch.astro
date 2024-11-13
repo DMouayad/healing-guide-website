@@ -6,7 +6,7 @@ const currentLangIsArabic = Astro.currentLocale === ARABIC_LANG;
 const engURL = URL_BASE + "/en/";
 ---
 
-<div class="flex-none grow-0 mx-3 md:ms-8 sec-text py-3 text-lg font-bold">
+<div class="flex-none grow-0 sec-text py-3 md:p-0 text-md font-semibold">
     {
         currentLangIsArabic ? (
             <a class="lang-switch" href={engURL}>

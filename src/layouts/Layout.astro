@@ -2,13 +2,12 @@
 import "@styles/global.css";
 import { URL_BASE } from "@/common/constants";
 import Footer from "@/components/Footer.astro";
-import MobileDrawer from "@/components/nav/MobileDrawer.astro";
-import Navigation from "@/components/nav/Navigation.astro";
-import TopHeader from "@/components/TopHeader.astro";
 import { DEFAULT_LOCALE } from "@/i18n/constants";
 import { i18n } from "@/i18n/utils";
 import "@fontsource/almarai/arabic.css";
 import "@fontsource/poppins/latin.css";
+import NavBar from "@/components/navbar/NavBar.astro";
+import MobileDrawer from "@/components/navbar/MobileDrawer.astro";
 
 interface Props {
 	title: string;
@@ -64,9 +63,8 @@ var faveIconFolderPath = URL_BASE + "/favicon";
 		<div class="drawer">
 			<input id="nav-drawer" type="checkbox" class="drawer-toggle" />
 			<div class="drawer-content">
-				<TopHeader />
+				<NavBar />
 				<div class="container mx-auto px-4 md:px-0">
-					<Navigation />
 					<slot />
 				</div>
 			</div>

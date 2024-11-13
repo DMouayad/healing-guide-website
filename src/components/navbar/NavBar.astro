@@ -1,0 +1,35 @@
+---
+import Logo from "../Logo.astro";
+import DownloadAppBtn from "./DownloadAppBtn.astro";
+import { localeSiteName } from "@/i18n/utils";
+import DrawerBtn from "./DrawerBtn.astro";
+import LangSwitch from "./LangSwitch.astro";
+import NavMenu from "./NavMenu.astro";
+---
+
+<div
+  id="topHeader"
+  class="sticky backdrop-blur backdrop-brightness-100 z-50 top-0 border-b"
+>
+  <div class="container mx-auto px-4 md:px-0 container-xl">
+    <div class="flex flex-row flex-nowrap py-3 justify-between items-center">
+      <DrawerBtn />
+      <a
+        href=""
+        class="basis-1/2 inline-flex justify-start md:basis-1/6 btn btn-ghost px-0 md:text-xl"
+      >
+        <Logo />
+        {localeSiteName(Astro.currentLocale)}
+      </a>
+      <div class="hidden basis-3/6 md:inline-flex">
+        <NavMenu />
+      </div>
+      <div class="md:basis-1/6 inline-flex items-center justify-end gap-6">
+        <DownloadAppBtn />
+        <div class="hidden sm:block">
+          <LangSwitch />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

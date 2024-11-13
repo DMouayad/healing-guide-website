@@ -2,14 +2,11 @@
 import { getLocaleNavItems } from "@/i18n/utils";
 ---
 
-<ul class="menu menu-horizontal lg:gap-x-10 px-0">
+<ul class="menu menu-horizontal px-0 justify-around w-full">
   {
     getLocaleNavItems(Astro.currentLocale).map((item) => (
       <li>
-        <button
-          class="btn font-normal text-lg btn-sm btn-ghost"
-          section-link={item.link}
-        >
+        <button class="btn btn-ghost" section-link={item.link}>
           {item.label}
         </button>
       </li>
